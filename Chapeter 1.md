@@ -1,6 +1,6 @@
 ## 📝 Configurando Ambiente 
 
-### ✅ Criando estrutura do Projeto
+### Criando estrutura do Projeto
 Projetos utilizando JavaScript, sempre inicializamos o repositório criando o package.json. 
 yarn init –y or npm init –y 
 
@@ -12,7 +12,7 @@ Pastas do nosso projeto:
 src – Aonde fica todo o nosso código 
 public – Aonde fica os arquivos públicos, principalmente o index.html, os favicon, e qualquer arquivo que precisa ser acessado. 
 
-### ✅ Configurando Babel
+### Configurando Babel
 yarn add @babel/core @babel/cli @babel/preset-env –D 
 
 Criar arquivo na raíz do projeto: babel.config.js : 
@@ -31,7 +31,7 @@ yarn babel src/index.js --out-file dist/bundle.js
 
 yarn add @babel/preset-react -D  
 
-### ✅ Configurando Webpack
+### Configurando Webpack
 yarn add webpack webpack-cli webpack-dev-server -D 
 
 Criar arquivo na raiz do projeto: webpack.config.js 
@@ -62,7 +62,7 @@ yarn add babel-loader –D
 
 yarn webpack 
 
-### ✅ Estrutura do ReackJS
+### Estrutura do ReackJS
 No nosso index.html não fica a nossa estrutura HTML, apenas fica uma div root, e toda nossa aplicação reat será construída dentro dessa div root 
 
 ### Servindo HTML estático
@@ -77,7 +77,7 @@ template: path.resolve(__dirname, 'public', 'index.html')
 }) 
 ], 
 
-### ✅ Webpack Dev Server
+### Webpack Dev Server
 yarn add webpack-dev-server -D 
 
 Para automatizar as atualizações da nossa aplicação. 
@@ -92,14 +92,14 @@ Depois disso, basta apenas executar:
 
 yarn webpack serve 
 
-### ✅ Utilizando sorce maps
+### Utilizando sorce maps
 Uma forma conseguir visualizar o código original da nossa aplicação mesmo quando todo o código da nossa aplicação está embaralhado. 
 
 Adicionar no webpack.config.js: 
 
 devtool: 'eval-source-map', 
 
-### ✅ Ambiente dev e produção
+### Ambiente dev e produção
 const isDevelopment = process.env.NODE_ENV !== 'production'; 
 
 mode: isDevelopment ? 'development' : 'production', 
@@ -121,7 +121,7 @@ No packge.json - juntos com as dependencias:
 yarn dev – ambiente de desenvolvimento 
 yarn build – ambiente de produção   
 
-### ✅ Importando aquivos CSS
+### Importando aquivos CSS
 Embaixo das rules do webpack.config.js: 
 { 
 test: /\.scss$/, 
@@ -131,53 +131,53 @@ use: ['style-loader', 'css-loader', 'sass-loader'],
 
 yarn add style-loader css-loader -D 
 
-### ✅ Utilizando o SASS
+### Utilizando o SASS
 yarn add node-sass -D 
 yarn add sass-loader -D 
 
 ## 📝 Conceitos importantes 
 
-### ✅ Primeiro componente React
+### Primeiro componente React
 Componente é uma função, com o nome que começa sempre com a primeira letra em maiúsculo e essa função devolve um HTML, e apenas um componente por arquivo. 
 
-### ✅ Propriedades do React: 
+### Propriedades do React: 
 Props 
 
-### ✅ Estado do componente
+### Estado do componente
 import { useState } from ‘react’; 
 const [ counter, setCounter ] = useState(0); 
 
-### ✅ A imutabilidade no React
+### A imutabilidade no React
 Prevê que uma variável nunca vai ter o seu valor alterado, na verdade ela sempre vai receber um novo valor. 
 
 usuarios = [‘magrelim12’, ‘Gabiru’, ‘Danilo’]; 
 
 NovoUsuarios = [...usuarios, ‘vj’]; 
 
-### ✅ Fast Refresh no Webpack
+### Fast Refresh no Webpack
 yarn add -D @pmmmwh/react-refresh-webpack-plugin react-refresh 
 
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin') 
 
 ## 📝 Chamadas HTTP 
 
-### ✅ Estilização da listagem 
+### Estilização da listagem 
 
-### ✅ Utilizando o useEffect 
+### Utilizando o useEffect 
 Nunca deixar sem o segundo parâmetro (se estiver sem, entrara em looping). 
 
 UseEffect ( () =>{}, [] ); 
 
-### ✅ Listando repositórios 
+### Listando repositórios 
 
 ## 📝 Usando TypeScript 
 
-### ✅ Fundamentos do TypeScript 
+### Fundamentos do TypeScript 
 É um superset, um conjunto de funcionalidades que adicionamos em cima de uma linguagem. 
 
 Type User – sempre definir o tipo com a primeira letra maiúscula 
 
-### ✅ TypeScript no ReactJS 
+### TypeScript no ReactJS 
 yarn add typescript -D 
 
 yarn tsc -init 
@@ -210,9 +210,9 @@ yarn add @types/react-dom -D
 
 yarn add @types/react -D 
 
-### ✅ Componentes com TypeScript 
+### Componentes com TypeScript 
 
 ## 📝 Finalizando aplicação 
 
-### ✅ Utilizando ReactDevTools 
+### Utilizando ReactDevTools 
  
