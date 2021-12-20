@@ -7,7 +7,7 @@
 
 ## Conteúdo 💻
 
-## - ✅ Chapter I
+## - ✅ Chapter I - Fundamentos do ReactJS
 Nesse módulo criaremos a estrutura base de uma aplicação React utilizando ferramentas como Webpack, Babel, Webpack Dev server, SASS, Source Maps, Fast Refresh e descobriremos conceitos importantes do React como componentes, propriedades, estados e hooks além de aplicar o TypeScript no nosso projeto para adicionar tipagem estática à aplicação.
 ✅ Configurando ambiente (💻 11 aulas | ⌚ 01:00:59) <br/>
 ✅ Conceitos importantes (💻 5 aulas | ⌚ 00:35:25.) <br/>
@@ -20,6 +20,20 @@ Nesse desafio, você deverá criar uma aplicação para treinar o que aprendeu a
 
 ✅ Desafio: Componentizando a aplicação:
 Nesse desafio iremos dividir uma aplicação em componentes afim de isolar as responsabilidades e facilitar a manutenção do código.
+
+## - ✅ Chapter II - Primeira aplicação web com ReactJS
+Nesse módulo construiremos uma aplicação front-end web completa utilizando conceitos e ferramentas importantes do ecossistema React como Styled Components, MirageJS, Context API, hooks, Axios e muito mais.
+✅ Estrutura da aplicação (💻 6 aulas | ⌚ 00:45:13) <br/>
+✅ Componentização (💻 3 aulas | ⌚ 00:32:42.) <br/>
+✅ Consumindo API (💻 3 aulas | ⌚ 00:19:20) <br/>
+✅ Modal & Forms (💻 11 aulas | ⌚ 01:17:50) <br/>
+✅ Contextos e hooks (💻 7 aulas | ⌚ 00:55:04) <br/>
+
+✅ Desafio: Criando um hook de carrinho de compras:
+Nesse desafio, você deverá criar um hook para gerenciar um carrinho de compras.
+
+✅ Desafio: Refactoring de classes e TypeScript:
+Nesse desafio, você deverá migrar uma aplicação de Javascript e Class Components para Typescript e Function Components
 
 # Certificado 📄
 <img src="" alt="Certificado" />
