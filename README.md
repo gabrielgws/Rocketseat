@@ -14,7 +14,12 @@ Nesse módulo criaremos a estrutura base de uma aplicação React utilizando fer
 ✅ Chamadas HTTP (💻 3 aulas | ⌚ 00:21:15) <br/>
 ✅ Usando TypeScript (💻 3 aulas | ⌚ 00:37:32) <br/>
 ✅ Finalizando aplicação (💻 2 aulas | ⌚ 00:10:49) <br/>
- 
+
+✅ Desafio: Conceitos do React:
+Nesse desafio, você deverá criar uma aplicação para treinar o que aprendeu até agora no ReactJS. Essa será uma aplicação onde o seu principal objetivo é uma pequena aplicação de atividades a fazer, para treinar um pouco mais sobre manipulação do estado no React.
+
+✅ Desafio: Componentizando a aplicação:
+Nesse desafio iremos dividir uma aplicação em componentes afim de isolar as responsabilidades e facilitar a manutenção do código.
 
 # Certificado 📄
 <img src="" alt="Certificado" />
