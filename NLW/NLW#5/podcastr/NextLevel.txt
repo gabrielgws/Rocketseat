@@ -1,9 +1,0 @@
-//Levar a aplicação para um NextLevel
-
-. Projeto responsivo
-. PWA - Progressive web app
-. Tema Dark
-
-// Ir além
-
-. Jogar dentro do electron, para transformar em um app desktop
