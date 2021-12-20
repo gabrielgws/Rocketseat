@@ -35,7 +35,7 @@ Nesse desafio, você deverá criar um hook para gerenciar um carrinho de compras
 ✅ Desafio: Refactoring de classes e TypeScript:
 Nesse desafio, você deverá migrar uma aplicação de Javascript e Class Components para Typescript e Function Components
 
-## - ✅ Chapter III - Fundamentos do Next.js, Back-end no front-end, Front-end JAMStack
+## - 🚩 Chapter III - Fundamentos do Next.js, Back-end no front-end, Front-end JAMStack
 
 ### ✅ Fundamentos do Next.js
 Nesse módulo entenderemos como o Next.js transforma a nossa maneira de desenvolver aplicações front-end e descobriremos conceitos importantes como SSR e SSG.
@@ -60,6 +60,33 @@ Nesse desafio você deve criar do zero uma aplicação de um blog com Prismic CM
 
 🚩 Desafio: Adicionado features ao blog:
 Nesse desafio você deve adicionar novas features ao projeto desenvolvido no desafio anterior.
+
+## - 🚩 Chapter IV - Construindo interfaces do futuro, Data fetching e cache local, Autenticação e autorização
+
+### 🚩 Contruindo interfaces do futuro
+Nesse módulo criaremos a interface de um painel administrativo contendo fluxo de autenticação, dashboard, listagem e cadastro usando Chakra UI no Next.js.
+🚩 Configurando projeto (💻 5 aulas | ⌚ 00:32:16) <br/>
+🚩 Login e dashboard (💻 6 aulas | ⌚ 00:55:44) <br/>
+🚩 Controle de usuários (💻 3 aulas | ⌚ 00:19:20) <br/>
+🚩 Responsividade (💻 9 aulas | ⌚ 01:00:23) <br/>
+
+🚩 Desafio: Interface com Chakra UI:
+Nesse desafio, você deverá desenvolver toda a interface de uma aplicação utilizando como base o Chakra UI.
+
+### 🚩 Data fetching e cache local
+Nesse módulo vamos utilizar o React Query para melhorar a experiência de uso da nossa aplicação criando uma camada de cache de dados entre o front-end e back-end.
+🚩 Conceitos do REact Query (💻 6 aulas | ⌚ 00:47:05) <br/>
+🚩 Constuindo aplicação (💻 9 aulas | ⌚ 01:10:42) <br/>
+
+### 🚩 Autenticação e autorização
+Nesse módulo vamos entender como criar um processo completo de autenticação, autorização e refresh token dentro do React com Next.js permitindo controlar o acesso à rotas e componentes tanto no client-side quando server-side.
+🚩 Configurando ambiente (💻 2 aulas | ⌚ 00:17:25) <br/>
+🚩 Autenticação com JWT (💻 8 aulas | ⌚ 01:15:28) <br/>
+🚩 Autenticação com SSR (💻 4 aulas | ⌚ 00:40:22) <br/>
+🚩 Controle de permissões (💻 4 aulas | ⌚ 00:34:25) <br/>
+
+🚩 Desafio: Upload de imagens:
+Nesse desafio você deve realizar o upload e listagem de imagens utilizando React Query, React Hook Form e Chakra UI.
 
 # Certificado 📄
 <img src="" alt="Certificado" />
