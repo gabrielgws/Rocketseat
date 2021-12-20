@@ -7,8 +7,13 @@
 
 ## Conteúdo 💻
 
-### - ✅ Boas-vindas ao Bootcamp Eduzz Fullstack Developer:
-Esse curso é para que você conheça mais sobre a Eduzz, uma empresa que almeja ser parte do seu crescimento pessoal e profissional, utilizando da tecnologia para gerar oportunidades e criar histórias de sucesso!  Vamos responder dúvidas sobre o bootcamp, o processo seletivo e as vagas disponíveis.
+## - ✅ Chapter I
+Nesse módulo criaremos a estrutura base de uma aplicação React utilizando ferramentas como Webpack, Babel, Webpack Dev server, SASS, Source Maps, Fast Refresh e descobriremos conceitos importantes do React como componentes, propriedades, estados e hooks além de aplicar o TypeScript no nosso projeto para adicionar tipagem estática à aplicação.
+✅ Configurando ambiente (💻 11 aulas | ⌚ 01:00:59)
+✅ Conceitos importantes (💻 5 aulas | ⌚ 00:35:25.)
+✅ Chamadas HTTP (💻 3 aulas | ⌚ 00:21:15)
+✅ Usando TypeScript (💻 3 aulas | ⌚ 00:37:32)
+✅ Finalizando aplicação (💻 2 aulas | ⌚ 00:10:49)
  
 
 # Certificado 📄
