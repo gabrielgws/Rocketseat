@@ -9,11 +9,11 @@
 
 ## - ✅ Chapter I
 Nesse módulo criaremos a estrutura base de uma aplicação React utilizando ferramentas como Webpack, Babel, Webpack Dev server, SASS, Source Maps, Fast Refresh e descobriremos conceitos importantes do React como componentes, propriedades, estados e hooks além de aplicar o TypeScript no nosso projeto para adicionar tipagem estática à aplicação.
-✅ Configurando ambiente (💻 11 aulas | ⌚ 01:00:59)
-✅ Conceitos importantes (💻 5 aulas | ⌚ 00:35:25.)
-✅ Chamadas HTTP (💻 3 aulas | ⌚ 00:21:15)
-✅ Usando TypeScript (💻 3 aulas | ⌚ 00:37:32)
-✅ Finalizando aplicação (💻 2 aulas | ⌚ 00:10:49)
+✅ Configurando ambiente (💻 11 aulas | ⌚ 01:00:59) <br/>
+✅ Conceitos importantes (💻 5 aulas | ⌚ 00:35:25.) <br/>
+✅ Chamadas HTTP (💻 3 aulas | ⌚ 00:21:15) <br/>
+✅ Usando TypeScript (💻 3 aulas | ⌚ 00:37:32) <br/>
+✅ Finalizando aplicação (💻 2 aulas | ⌚ 00:10:49) <br/>
  
 
 # Certificado 📄
