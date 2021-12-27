@@ -176,6 +176,72 @@ yarn add node-sass -D
 
 yarn add sass-loader -D
 
+-----
+
 ## 💻 Configurando o ambiente
 
-:wrench:	
+### :wrench:	Primeiro componente React <br/>
+:bulb:	Pergunta: O que são componentes do React e qual sua importância para a organização da nosas aplicação? <br/>
+Componentes é como se fosse as tags no HTML, são formas de encapsular uma quantidade de código dentro de um único elemento e ele tem sua própria funcionalidade sua estilização e a sua própria estrutura. São formas da gente organizar a nossa aplicação, dividir a nossa aplicação em vários pedacinhos que quando conectados formam algo maior.
+
+-----
+
+### :wrench:	Propriedades no React <br/>
+:bulb:	Pergunta: Como utilizamos as propriedades do React? Qual a utilidade de propriedades no React? <br/>
+Propriedades funcionam assim como os atributos funcionam dentro de tags HTML, são informações variáveis que eu posso passar para um componente funcionar de forma diferente.
+
+Podemos acessar todas as propriedades que um componentes recebe através dos argumentos da função (props).
+
+-----
+
+### :wrench:	Estado do componente <br/>
+:bulb:	Pergunta: O que é estado no React? Qual é o hook de estado do React? <br/>
+Estado é uma variável que o react monitora e toda vez que o valor é alterado ele renderiza novamente em tela.
+
+O hook utilizado é o useState.
+
+-----
+
+### :wrench:	A imutabilidade no React <br/>
+:bulb:	Pergunta: O que significa a imutabilidade no React e qual sua importância?  <br/>
+Ele prevê que uma variável nunca pode ter o seu valor alterado, ele sempre vai receber um novo valor. Cria um novo espaço na memória contendo a nova informação do que alterar uma informação que já está salva na memória. Garantindo uma melhor performance no react, e fica mais fácil ele entender as novas informações que existem dentro de uma variável.
+
+-----
+
+### :wrench:	Fast Refresh no Webpack <br/>
+:bulb:	Pergunta: Como o Fast Refresh beneficia o nosso desenvolvimento? <br/>
+Deixa o ambiente de desenvolvimento mais fluido. Quando alteramos algo em nosso componente ele mantem o estado assim não perdendo todo o processo.
+
+yarn add -D @pmmmwh/react-refresh-webpack-plugin react-refresh
+
+-----
+
+## 💻 Chamadas HTTP
+
+### 🌐	Primeiro componente React <br/>
+:bulb:	Pergunta: O que o & significa no SCSS? <br/>
+O & no scss referencia o próprio elemento.
+```
+li {
+ & + li {
+  margin-top: 20px;
+ }
+}
+```
+
+-----
+
+### 🌐	Utilizando o useEffect <br/>
+:bulb:	Pergunta: Qual a funcionalidade do useEffect? E como podemos utilizar uma função somente assim que nosso componente for renderizado em tela utizando o useEffect? <br/>
+Dispara uma função quando algo acontecer na aplicação. Esse ‘algo’ poderia ser uma variável mudar, e ai conseguimos avisar alguma api que ouve alguma alteração ou até podemos disparar alguma função dentro do sistema.
+```
+useEffect( () ⇒ {}, [])
+```
+
+-----
+
+### 🌐	Listando repositórios <br/>
+:bulb:	Pergunta: Como podemos incluir um código JavaScript dentro do retorno do nosso componente React? <br/>
+Conseguimos incluir JavaScript dentro do React usando chaves {}.
+
+-----
