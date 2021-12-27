@@ -1,218 +1,127 @@
-## 📝 Configurando Ambiente 
+# 📝 Módulo 01
+Fundamentos do ReactJS
 
-### Criando estrutura do Projeto
-Projetos utilizando JavaScript, sempre inicializamos o repositório criando o package.json. 
-yarn init –y or npm init –y 
+## 💻 Configurando o ambiente
 
-Pakage.json aonde fica as nossas bibliotecas de terceiros 
-yarn add react 
-yarn add react-dom – forma de trabalhar com react na web, html convertido em sintaxe de objeto de um JavaScript 
+### :hammer:	Introdução do módulo <br/>
+:bulb:	Pergunta: O que é o React e o que conseguimos construir com ele? <br/>
+React é uma biblioteca de criação de interfaces, tudo que é interface pode ser construída com ReactJS (interface web, mobile, TV, Realidade Virtual).
 
-Pastas do nosso projeto: 
-src – Aonde fica todo o nosso código 
-public – Aonde fica os arquivos públicos, principalmente o index.html, os favicon, e qualquer arquivo que precisa ser acessado. 
+-----
 
-### Configurando Babel
-yarn add @babel/core @babel/cli @babel/preset-env –D 
+### :hammer:	Criando estrutura do projeto <br/>
+:bulb:	Pergunta: Como podemos instalar bibliotecas para começar o desenvolvimento de uma estrutura de uma aplicação? <br/>
+Utilizadno o yarn ou npm.
 
-Criar arquivo na raíz do projeto: babel.config.js : 
-module.exports = { 
-presets: [ 
-'@babel/preset-env', 
-['@babel/preset-react', { 
-runtime: 'automatic' 
-}] 
-], 
-} 
+yarn init -y (npm init -y) - package.json aonde ficará as bibliotecas de terceiros.
 
- 
+yarn add react
 
-yarn babel src/index.js --out-file dist/bundle.js 
+yarn add react-dom - árvores de elementos da nossa aplicação, permite que o react se comunique com a arvore de elementos do HTML
 
-yarn add @babel/preset-react -D  
+-----
 
-### Configurando Webpack
-yarn add webpack webpack-cli webpack-dev-server -D 
+### :hammer:	Configurando Babel <br/>
+:bulb:	Pergunta: Qual a função do Babel? Como podemos utilizar ele em nossa aplicação? <br/>
+Babel serve para converter o nosso código para uma maneira que todos os browsers e o nosso ambiente da aplicação consiga entender todos os códigos.
 
-Criar arquivo na raiz do projeto: webpack.config.js 
+yarn add @babel/core @babel/cli @babel/preset-env -D
 
-const path = require('path'); 
-module.exports = { 
-mode: 'development', 
-entry: path.resolve(__dirname, 'src', 'index.jsx'), 
-output: { 
-path: path.resolve(__dirname, 'dist'), 
-filename: 'bundle.js' 
-}, 
-resolve: { 
-extensions: ['.js', '.jsx'] 
-}, 
-module: { 
-rules: [ 
-{ 
-test: /\.jsx$/, 
-exclude: /node_modules/, 
-use: 'babel-loader' 
-} 
-], 
-} 
-}; 
+babel.config.js - 
 
-yarn add babel-loader –D 
+```
+module.exports = {
+presets: [
+ ‘@babel/preset-env’,
+ ‘@babel/preset-react’,
+]
+}
+```
 
-yarn webpack 
+yarn babel src/index.js - -out-file dist/bundle.js
 
-### Estrutura do ReackJS
-No nosso index.html não fica a nossa estrutura HTML, apenas fica uma div root, e toda nossa aplicação reat será construída dentro dessa div root 
+yarn add @babel/preset-react -D
 
-### Servindo HTML estático
-Removendo o script do index.html, e instalar dentro da nossa aplicação o: 
-yarn add html-webpack-plugin -D 
+-----
 
-Dentro do webpack.config.js adicionar: 
-const HtmlWebpackPlugin - require('html-webpack-plugin') 
-plugins: [ 
-new HtmlWebpackPlugin({ 
-template: path.resolve(__dirname, 'public', 'index.html') 
-}) 
-], 
+### :hammer:	Configurando Webpack <br/>
+:bulb:	Pergunta: Qual a diferença do Webpack e do Babel? O que são os loaders do Webpack? <br/>
+Estipula uma série de configurações (loaders) que ensinam a nossa aplicação como ela deve tratar cada um desses tipos de arquivos((.sass - .css), (.png ou .jpg - .png e .jpg que são entendíveis pelo browser)), o webpack pega cada um desses arquivos e converte em arquivos ‘entendíveis’ pelo browser.
 
-### Webpack Dev Server
-yarn add webpack-dev-server -D 
+yarn add webpack webpack-cli webpack-dev-server -D
 
-Para automatizar as atualizações da nossa aplicação. 
+webpack.config.js -
+```const path = require(’path’) 
 
-Dentro do webpack.config.js 
+module.export = {
+entry: path.resolver(__dirname, ‘src’, ‘index.jsx’),
 
-devServer: { 
-contentBase: path.resolve(__dirname, 'public') 
-} 
+output: {
+ path: path.resolve(__dirname, ‘dist’),
+ filename: ‘bundle.js’
+},
 
-Depois disso, basta apenas executar: 
+resolve: {
+ extensions: [’.js’, ‘.jsx’],
+},
 
-yarn webpack serve 
+module: {
+ rules: [
+   {
+   test: /\.jsx$/,
+   exclude: /node_modules/,
+   use: ‘babel-loader’
+   },
+  ],
+ }
+}
+```
 
-### Utilizando sorce maps
-Uma forma conseguir visualizar o código original da nossa aplicação mesmo quando todo o código da nossa aplicação está embaralhado. 
+yarn add babel-loader -D // Integração entre o babel e o webpack
 
-Adicionar no webpack.config.js: 
+-----
 
-devtool: 'eval-source-map', 
+### :hammer:	Estrutura do ReactJS <br/>
+:bulb:	Pergunta: O que é o React-DOM e qual sua importância quando estamos utilizando o React? Como podemos utilizar o React-DOM para exibir nossa aplicação no Browser? <br/>
+React-DOM renderiza a nossa aplicação recebendo dois parâmetros, primeiro o que queremos renderizar e exibir em tela, e o segundo é dentro de qual elemento eu desejo renderizar essa informação
+```
+import { render } from ‘react-dom’;
 
-### Ambiente dev e produção
-const isDevelopment = process.env.NODE_ENV !== 'production'; 
+render (<h1>test</h1>, document.getElementById(’root’))
+```
+-----
 
-mode: isDevelopment ? 'development' : 'production', 
+### :hammer:	Servindo HTML estático <br/>
+:bulb:	Pergunta: Qual o benefício do html-webpack-plugin? <br/>
+Melhorar a estrutura da aplicação e melhorar o fluxo da aplicação.
 
-devtool: isDevelopment ? 'eval-source-map' : 'source-map', 
+yarn add html-webpack-pluguin -D
+```
+const HtmlWebpackPluguin = require(’html-webpack-plugin’)
 
-Para executar essas funcionalidades de produção ou não no mac ou linux: 
-NODE-ENV=production yarn webpack 
+plugins: [
+ new HtmlWebpacjPlugin({
+  template: path.resolve(__dirname, ‘public’, ‘index.html’)
+})
+]
+```
+-----
+### :hammer:	Introdução do módulo <br/>
+:bulb:	Pergunta: O que é o React e o que conseguimos construir com ele? <br/>
+React é uma biblioteca de criação de interfaces, tudo que é interface pode ser construída com ReactJS (interface web, mobile, TV, Realidade Virtual).
 
-Windows é diferente por isso vamos instalar: 
-yarn add cross-env -D (definir variáveis ambientes independente do sistema operacional) 
+### :hammer:	Introdução do módulo <br/>
+:bulb:	Pergunta: O que é o React e o que conseguimos construir com ele? <br/>
+React é uma biblioteca de criação de interfaces, tudo que é interface pode ser construída com ReactJS (interface web, mobile, TV, Realidade Virtual).
 
-No packge.json - juntos com as dependencias: 
-"scripts": { 
-"dev": "webpack serve", 
-"build": "cross-env NODE_ENV=production webpack" 
-}, 
+### :hammer:	Introdução do módulo <br/>
+:bulb:	Pergunta: O que é o React e o que conseguimos construir com ele? <br/>
+React é uma biblioteca de criação de interfaces, tudo que é interface pode ser construída com ReactJS (interface web, mobile, TV, Realidade Virtual).
 
-yarn dev – ambiente de desenvolvimento 
-yarn build – ambiente de produção   
+### :hammer:	Introdução do módulo <br/>
+:bulb:	Pergunta: O que é o React e o que conseguimos construir com ele? <br/>
+React é uma biblioteca de criação de interfaces, tudo que é interface pode ser construída com ReactJS (interface web, mobile, TV, Realidade Virtual).
 
-### Importando aquivos CSS
-Embaixo das rules do webpack.config.js: 
-{ 
-test: /\.scss$/, 
-exclude: /node_modules/, 
-use: ['style-loader', 'css-loader', 'sass-loader'], 
-} 
-
-yarn add style-loader css-loader -D 
-
-### Utilizando o SASS
-yarn add node-sass -D 
-yarn add sass-loader -D 
-
-## 📝 Conceitos importantes 
-
-### Primeiro componente React
-Componente é uma função, com o nome que começa sempre com a primeira letra em maiúsculo e essa função devolve um HTML, e apenas um componente por arquivo. 
-
-### Propriedades do React: 
-Props 
-
-### Estado do componente
-import { useState } from ‘react’; 
-const [ counter, setCounter ] = useState(0); 
-
-### A imutabilidade no React
-Prevê que uma variável nunca vai ter o seu valor alterado, na verdade ela sempre vai receber um novo valor. 
-
-usuarios = [‘magrelim12’, ‘Gabiru’, ‘Danilo’]; 
-
-NovoUsuarios = [...usuarios, ‘vj’]; 
-
-### Fast Refresh no Webpack
-yarn add -D @pmmmwh/react-refresh-webpack-plugin react-refresh 
-
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin') 
-
-## 📝 Chamadas HTTP 
-
-### Estilização da listagem 
-
-### Utilizando o useEffect 
-Nunca deixar sem o segundo parâmetro (se estiver sem, entrara em looping). 
-
-UseEffect ( () =>{}, [] ); 
-
-### Listando repositórios 
-
-## 📝 Usando TypeScript 
-
-### Fundamentos do TypeScript 
-É um superset, um conjunto de funcionalidades que adicionamos em cima de uma linguagem. 
-
-Type User – sempre definir o tipo com a primeira letra maiúscula 
-
-### TypeScript no ReactJS 
-yarn add typescript -D 
-
-yarn tsc -init 
-
-{ 
-"compilerOptions": { 
-"lib": [ 
-"dom", 
-"dom.Iterable", 
-"esnext" 
-], 
-"allowJs": true, 
-"jsx": "react-jsx", 
-"noEmit": true, 
-"strict": true, 
-"moduleResolution": "node", 
-"resolveJsonModule": true, 
-"isolatedModules": true, 
-"allowSyntheticDefaultImports": true, 
-"esModuleInterop": true, 
-"skipLibCheck": true, 
-"forceConsistentCasingInFileNames": true 
-}, 
-"include": ["src"] 
-} 
-
-yarn add @babel/preset-typescript -D 
-
-yarn add @types/react-dom -D 
-
-yarn add @types/react -D 
-
-### Componentes com TypeScript 
-
-## 📝 Finalizando aplicação 
-
-### Utilizando ReactDevTools 
- 
+### :hammer:	Introdução do módulo <br/>
+:bulb:	Pergunta: O que é o React e o que conseguimos construir com ele? <br/>
+React é uma biblioteca de criação de interfaces, tudo que é interface pode ser construída com ReactJS (interface web, mobile, TV, Realidade Virtual).
