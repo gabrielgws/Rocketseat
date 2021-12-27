@@ -248,7 +248,7 @@ Conseguimos incluir JavaScript dentro do React usando chaves {}.
 
 ## 💻 Utilizando TypeScript 
 
-### ⚫	Fundamentos do TypeScript <br/>
+### :large_blue_diamond: Fundamentos do TypeScript <br/>
 :bulb:	Pergunta: Por definição, o que é o TypeScript? Quais os benefícios em utilizá-lo no projeto? <br/>
 TypeScript é um superset, um conjunto de funcionalidades que a gente adiciona em cima de uma linguagem.
 
@@ -256,7 +256,7 @@ TypeScipt permite adicionar tipagem, adicionar qual é o formato das informaçõ
 
 -----
 
-### ⚫	TypeScript no ReactJS <br/>
+### :large_blue_diamond:	TypeScript no ReactJS <br/>
 :bulb:	Pergunta: Quais utilizades tem o TypeScript no React? Quais os principais lugares que adicionamos tipagens no React? <br/>
 Ele tipa as propriedades que um componente pode receber.
 
@@ -272,7 +272,7 @@ yarn add @types/react -D
 
 -----
 
-### ⚫	Componentes com TypeScript <br/>
+### :large_blue_diamond:	Componentes com TypeScript <br/>
 :bulb:	Pergunta: Qual formato damos para os nossos arquivos React para podermos utilizar o TypeScript junto com o React? <br/>
 Formato de .tsx
 
