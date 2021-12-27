@@ -245,3 +245,63 @@ useEffect( () ⇒ {}, [])
 Conseguimos incluir JavaScript dentro do React usando chaves {}.
 
 -----
+
+## 💻 Utilizando TypeScript 
+
+### ⚫	Fundamentos do TypeScript <br/>
+:bulb:	Pergunta: Por definição, o que é o TypeScript? Quais os benefícios em utilizá-lo no projeto? <br/>
+TypeScript é um superset, um conjunto de funcionalidades que a gente adiciona em cima de uma linguagem.
+
+TypeScipt permite adicionar tipagem, adicionar qual é o formato das informações que estamos esperando dentro dos argumentos da nossa função. ou qual é o formato das informações que estamos esperando retornar de uma função.
+
+-----
+
+### ⚫	TypeScript no ReactJS <br/>
+:bulb:	Pergunta: Quais utilizades tem o TypeScript no React? Quais os principais lugares que adicionamos tipagens no React? <br/>
+Ele tipa as propriedades que um componente pode receber.
+
+yarn add typescript -D
+
+yarn tsc —init
+
+yarn add @babel/preset-typescript -D
+
+yarn add @types/react-dom -D
+
+yarn add @types/react -D
+
+-----
+
+### ⚫	Componentes com TypeScript <br/>
+:bulb:	Pergunta: Qual formato damos para os nossos arquivos React para podermos utilizar o TypeScript junto com o React? <br/>
+Formato de .tsx
+
+-----
+
+## 💻 Finalizando a aplicação
+
+### 🔎	Utilizando React DevTools <br/>
+:bulb:	Pergunta: Por definição, o que é o TypeScript? Quais os benefícios em utilizá-lo no projeto? <br/>
+TypeScript é um superset, um conjunto de funcionalidades que a gente adiciona em cima de uma linguagem.
+
+TypeScipt permite adicionar tipagem, adicionar qual é o formato das informações que estamos esperando dentro dos argumentos da nossa função. ou qual é o formato das informações que estamos esperando retornar de uma função.
+
+-----
+
+### 🔎	Finalização do módulo <br/>
+:bulb:	Pergunta: O que você aprendeu até aqui? Quais os pontos principais desse módulo pra você? 💜 <br/>
+Aprendi nesse primeiro módulo:
+
+- Como configurar estrutura de um projeto react do 0 com babel, com webpack, com typescript, com css loader ou sass loader.
+- Webpack dev server
+- Source maps
+- Sobre ambiente de desenvolvimento e de produção
+- Importação de arquivos css e scss
+- Componentização
+- Sobre propriedades do componente
+- Estado
+- Imutabilidade
+- Hooks (useState, useEffect)
+- Listagem de repositório (api github, map(), key)
+- typeScript
+- React Devtools
