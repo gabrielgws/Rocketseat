@@ -89,6 +89,7 @@ import { render } from ‘react-dom’;
 
 render (<h1>test</h1>, document.getElementById(’root’))
 ```
+
 -----
 
 ### :hammer:	Servindo HTML estático <br/>
@@ -105,23 +106,72 @@ plugins: [
 })
 ]
 ```
+
 -----
-### :hammer:	Introdução do módulo <br/>
-:bulb:	Pergunta: O que é o React e o que conseguimos construir com ele? <br/>
-React é uma biblioteca de criação de interfaces, tudo que é interface pode ser construída com ReactJS (interface web, mobile, TV, Realidade Virtual).
 
-### :hammer:	Introdução do módulo <br/>
-:bulb:	Pergunta: O que é o React e o que conseguimos construir com ele? <br/>
-React é uma biblioteca de criação de interfaces, tudo que é interface pode ser construída com ReactJS (interface web, mobile, TV, Realidade Virtual).
+### :hammer:	Webpack Dev Server <br/>
+:bulb:	Pergunta: Qual a principal funcionalidade do webpack-dev-server? <br/>
+Automatizar, o webpack fica observando as alterações nos arquivos, e toda vez que tiver uma alteração ele cria um novo bundle.js e não precisamos ficar se preocupando.
 
-### :hammer:	Introdução do módulo <br/>
-:bulb:	Pergunta: O que é o React e o que conseguimos construir com ele? <br/>
-React é uma biblioteca de criação de interfaces, tudo que é interface pode ser construída com ReactJS (interface web, mobile, TV, Realidade Virtual).
+yarn add webpack-dev-server -D
+```
+devServer: {
+ contentBase: path.resolve(__dirname, ‘public’, ‘index.html’)
+}
+```
+yarn webpack serve
 
-### :hammer:	Introdução do módulo <br/>
-:bulb:	Pergunta: O que é o React e o que conseguimos construir com ele? <br/>
-React é uma biblioteca de criação de interfaces, tudo que é interface pode ser construída com ReactJS (interface web, mobile, TV, Realidade Virtual).
+-----
 
-### :hammer:	Introdução do módulo <br/>
-:bulb:	Pergunta: O que é o React e o que conseguimos construir com ele? <br/>
-React é uma biblioteca de criação de interfaces, tudo que é interface pode ser construída com ReactJS (interface web, mobile, TV, Realidade Virtual).
+### :hammer:	Utilizando source maps <br/>
+:bulb:	Pergunta: Qual o benefício da utilização do source maps enquanto desenvolvemos a aplicação? <br/>
+Uma forma de conseguir visualizar o código original da nossa aplicação mesmo quanto todo o código está embaralhado no bundle.js.
+
+-----
+
+### :hammer:	Ambiente dev e produção <br/>
+:bulb:	Pergunta: O que são as variáveis ambientes, e como podemos utilizar elas em nossa aplicação?  <br/>
+Variáveis ambientes são para configurar alguma coisa de acordo o ambiente da minha aplicação.
+
+const isDevelopment = process.env.NODE_ENV ≠ ‘production’;
+
+Temos ambiente de desenvolvimento e de produção, o webpack funciona de forma diferentes, quando estamos em desenvolvimento e quando eu gerar a aplicação para produção.
+
+mode: isDevelopment ? ‘development’ : ‘production’
+
+yarn add cross-env -D
+```
+“scripts”: {
+ “dev”: “webpack serve”,
+ “build”: “cross-env NODE_ENV=production webpack”
+}
+```
+
+------
+
+### :hammer:	Importando arquivos CSS <br/>
+:bulb:	Pergunta: Por que é necessário configurar um loader para os nossos arquivos de css? <br/>
+O react não entende nada do arquivo que importamos pois não é um arquivo js, e o loader serve para ler o arquivos css.
+
+yarn add style-loader css-loader -D
+
+import ‘./styles/global.css’;
+
+```
+module: {
+ rules: [
+ {
+  test: /\.css$/,
+  exclude: /node_modules/,
+  use: [’style-loader’, ‘css-loader’],
+ }
+ ]
+}
+```
+### :hammer:	Utilizando SASS <br/>
+:bulb:	Pergunta: O que é o SASS e quais benefícios você consegue enxergar na utilização dele? <br/>
+SASS é um pré-processador que conseguimos tem funcionalidades a mais como o encadeamento, utilizar mais funções.
+
+yarn add node-sass -D
+
+yarn add sass-loader -D
