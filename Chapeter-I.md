@@ -175,3 +175,7 @@ SASS é um pré-processador que conseguimos tem funcionalidades a mais como o en
 yarn add node-sass -D
 
 yarn add sass-loader -D
+
+## 💻 Configurando o ambiente
+
+:wrench:	
