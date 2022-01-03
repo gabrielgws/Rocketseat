@@ -1,149 +1,59 @@
-## 📝 Estrutura da aplicação 
+# 📝 Módulo 01
+Fundamentos do ReactJS
 
-### Introdução do módulo
+## 💻 Estrutura da aplicação
 
-### Estrutura com create-react-app 
-yarn create react-app my-app --template typescript 
+### :hammer: Estrutura com create-react-app <br/>
+:bulb: Pergunta: O que é o create-react-app e para que utilizamos ele? <br/>
+É uma estrutura pré configurada. Utilizamos eles para pular algumas etapas, e ir direto ao código.
 
-Limpar todo o nosso projeto, deixando apenas o: 
-index.html 
-App.tsx - retirar o ‘export default App;’ e colocar o export na function’ 
-index.tsx 
-react-app-env.d 
+yarn create react-app dtmoney --template typescript
 
-No package.jason -> dependencias – tirar todos os @ e o type script e logo abaixo adicionar como devDependencies 
+-----
 
-### Exportando assets do Figma 
+### :hammer: Instalando Styled Components <br/>
+:bulb: Pergunta: Qual o benefício do Styled Componentes e por que utilizamos ele? <br/>
+As vantagens de usar o styled-components é que ele suporta o encadeamento de estilos assim como temos no sass, e uma das grandes vantagens que percebemos no começo é que quando utilizamos ele a nossa estilização fica apenas dentro do escopo apenas do componentes que criamos aquela estilização.
 
-### Instalando Styled Components 
-yarn add styled-components 
-yarn add @types/styled-components -D 
+yarn add styled-components
 
-import styled from 'styled-components'; 
+yarn add @types/styled-components -D
 
-const Title = styled.h1` 
-color: #8257e6; 
-` 
+-----
 
-export function App() { 
-return ( 
-<div className="App"> 
-<Title>Hello Word!</Title> 
-</div> 
-); 
-} 
+### :hammer: Criando estilos globais <br/>
+:bulb: Pergunta: Qual o benefício de utilizar porcentagem na estilização das fontes na nossa aplicação, principalmente quando lidamos com a responsividade? <br/>
+Caso o usuário esteja com a configuração mobile ou desktop de aumentar a fonte ou diminuir o percentual vai aumentar ou diminuir de acordo com a preferência do usuário.
 
-Aceitam encadeamento como o sass. 
+-----
 
-### Criando estilos globais 
-html{ 
-@media(max-width: 1080px){ 
-font-size: 93.75%; // 15px 
-} 
-@media(max-width: 720px){ 
-font-size: 87.5%; // 14px 
-} 
-} 
+### :hammer: Fontes do Google Fonts <br/>
+:bulb: Pergunta: O que é o React e o que conseguimos construir com ele? <br/>
+React é uma biblioteca de criação de interfaces, tudo que é interface pode ser construída com ReactJS (interface web, mobile, TV, Realidade Virtual).
 
-// REM = 1rem = 16px – quando utilizamos 1rem ele é igual a 16px, mas nos dispositivos móveis eles serão 15px ou 14px, e se o usuário estiver com o tamanho da fonte do dispositivo maior, eles vão aumentar. 
+-----
 
-body{ 
---webkit-font-smoothing: antialiased; 
-} 
+## 💻 Componentização
 
-// Para deixar a nossa font mais nitida. 
+### 🔵 Componente: Header <br/>
+:blue: Pergunta: Para o que serve o Fragment que utilizamos no nosso componente App?  <br/>
+Fragment é um elemento que não tem nenhuma assinatura, uma tag vazia. Ela é uma div porém ela não é passada para o nosso html.
 
-### Fontes do Google Fonts 
+-----
 
-## 📝 Componentização 
+### 🔵 Componente: Summary <br/>
+:bulb: Pergunta: Como podemos definir um grid de 3 colunas com o CSS? <br/>
+css:
+```
+display: grid;
+grid-template-colums: repeat (3, 1fr); // 3 colunas de tamanhos iguais
+gap: 2rem;
+```
 
-### Componente: Header 
+-----
 
-### Componente: Summary 
+### 🔵 Componente: TransactionsTable <br/>
+:bulb: Pergunta: O que faz o seletor :first-child no CSS? <br/>
+Seleciona e estiliza o primeiro elemento, o primeiro filho do seu pai.
 
-### Componente: TransactionsTable 
-
-## 📝 Consumindo API 
-
-### Criando front-end sem back-end 
-json server 
-Miragejs * 
-MSW 
-
-### Configurando MirageJS 
-useEffect(() => { 
-fetch('http://localhost:3000/api/transactions') 
-.then(response => response.json()) 
-.then(data => console.log(data)) 
-}, []); 
-
-import { createServer } from 'miragejs'; 
-
-createServer({ 
-routes() { 
-this.namespace = 'api'; 
-this.get('/transactions', () => { 
-return [ 
-{ 
-id: 1, 
-title: 'Transaction 1', 
-amount: 400, 
-type: 'deposit', 
-category: 'Food', 
-createAt: new Date(), 
-} 
-] 
-}); 
-} 
-}) 
-
-### Configurando cliente do Axios 
-yarn add axios 
-
-## 📝 Modal & Forms 
-
-### Configurando modal de criação 
-react-modal 
-
-yarn add react-modal 
-yarn add @types/react-modal -D 
-
-### Componente: NewTransactionModal 
-
-### Estrutura do formulário 
-
-### Estilizando modal 
-
-### Criando botões de Tipo 
-yarn add polished // para escurecer uma cor, dentre outras. 
-
-border-color: ${darken(0.1, '#d7d7d7')}; 
-
-### Funcionamento dos Botões 
-No styled componets, dá para passar propriedades e assim a gente manipular via js no nosso “css”. 
-
-### Cores dos botões 
-
-### Salvando dados do form 
-
-### Inserindo transação na API 
-
-### Listando transações e seeds 
-
-### Formatando valores 
-
-## 📝 Contextos e hooks 
-
-### Introdução à contextos 
-
-### A Context API no React 
-
-### Carregando transações 
-
-### Movendo criação para o context 
-
-### Finalizando inserção 
-
-### Calculando resumo 
-
-### Criando hook 
+-----
