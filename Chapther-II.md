@@ -190,3 +190,86 @@ new Date(transaction.createdAt)
 ```
 
 -----
+
+## 💻 Contextos e hooks
+
+### 🔷 Introdução à contextos <br/>
+:bulb: Pergunta: O que é o problema de prop-drilling no React? E como o Contexto pode ajudar à evitar isso? <br/>
+Prop-driling é quando ficamos passando uma propriedade vários níveis para baixo.
+
+Assim com o contexto podemos compartilhar uma informação ou um estado, para vários componentes da nossa aplicação independente de onde esses contextos estejam.
+
+-----
+
+### 🔷 A Context API no React <br/>
+:bulb: Pergunta: Qual é a função responsável por uma criação de um Contexto, e para que serve o Provider que é retornado de dentro dela? <br/>
+Para criação de um contexto podemos criar um arquivo js, e assim passando para a nossa aplicação como o hook useContext.
+
+O provider envolve todo os componentes que precisam usar o estado context.
+
+-----
+
+### 🔷 Carregando transações <br/>
+:bulb: Pergunta: O que é o children do React e porque precisamos utilizar ele no Provider da nossa Context? <br/>
+Children retorna uma coleção de elementos filhos de um elemento. Pois o provider não sabe que pode receber conteúdo dentro dele, assim fazendo com o que ele receba utilizando o children provider.
+
+-----
+
+### 🔷 Movendo criação para o context <br/>
+:bulb: Pergunta: Para o que serve o Omit do TypeScript que vimos nessa aula? <br/>
+```type TransactionInput = Omit<Transaction, ‘id’ | ‘createdAt’>;```
+
+O TransactionInput vai herdar todo os campos do TRansactions menos o id e o createdAt pois estamos omitindo eles.
+
+-----
+
+### 🔷 Finalizando inserção <br/>
+:bulb: Pergunta: Como adicionamos uma informação no final de um vetor do JavaScript respeitando o conceito de imutabilidade do React? <br/>
+Seguindo o conceito de imutabilidade você copia toda as informações e adiciona a nova informação no final. Assim ele não altera a informação original, criamos um novo vetor, adicionando no final.
+```
+setTransactions([
+...transactions,
+transaction
+])
+```
+
+-----
+
+### 🔷 Calculando resumo <br/>
+:bulb: Pergunta: O que faz o método reduce? Quais parametros e qual o seu retorno? Como adicionar um reduce com um valor inicial? <br/>
+Reduce é um método que retorna um único valor: o resultado acumulado da função.
+```
+const summary = transactions.reduce( (acc, transaction) ⇒ {
+
+if (transactions.type == ‘deposit’ ){
+
+acc.deposits += transaction.amount;
+
+[acc.total](http://acc.total) += transaction.amount;
+
+} else {
+
+acc.withdraws += transaction.amount;
+
+[acc.total](http://acc.total) -= transaction.amount
+
+}
+
+return acc;
+
+}, {
+
+deeposits: 0,
+
+withdraws: 0,
+
+total: 0,
+
+})
+```
+
+-----
+
+### 🔷 Criando hook <br/>
+:bulb: Pergunta: O que é um hook do React e porque criamos um hook para as nossas transactions? <br/>
+Os hooks permitem que os componentes da função tenham acesso ao estado e a outros recursos do React, assim permitindo “conectar” os recursos do React, com métodos de estado e de ciclo de vida.
