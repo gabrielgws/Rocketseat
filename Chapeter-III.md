@@ -1,57 +1,64 @@
-## 📝 Fundamentos do Next.js
+# 📝 Módulo 01
+Fundamentos do Next.js
 
-### Introdução do módulo
+## 💻 Estrutura da aplicação
 
-### Fluxo da aplicação 
-Stripe (Pagamentos) 
-Github (Autenticação + OAuth) 
-FaunaDB (Banco de dados) 
-Prismic CMS 
+### :hammer: Fluxo da aplicação <br/>
+:bulb: Pergunta: O que é um CMS? <br/>
+Content management system é um painel de administração, para cadastro de informações e servir esses dados através de uma api.
 
-### Fundamentos do Next.js 
-SPA (Single-page Application) 
-SSR (Server-side Rendering) 
+-----
 
-### Criando estrutura Next.js 
-yarn create next-app ignews 
+### :hammer: Fundamentos do Next.js <br/>
+:bulb: Pergunta: O que difere um SSR(Server-side Rendering) de uma SPA(Single-page Application) ?  <br/>
+SPA é uma aplicação de uma só página e sempre são executadas do lado do cliente, no caso, o navegador. O conteúdo é carregado completamente logo na primeira requisição.
 
-### Adicionando estrutura TypeScript 
-yarn add typescript @types/react @types/node -D 
-Dentro de _app.tsx - importar o (import { AppProps } from 'next/app'; )  
+Já o SSR oferece ao usuário um carregamento mais eficiente, já que parte da renderização é feita no servidor. Além da possibilidade de melhoria da performance, e ele ajuda a lidar com alguns problemas de SEO, já que parte da aplicação é carregada pelo servidor.
 
-import { AppProps } from 'next/app'; 
-function MyApp({ Component, pageProps }: AppProps) { 
-return <Component {...pageProps} /> 
-} 
+-----
 
-export default MyApp 
+### :hammer: Criando estrutura Next.js <br/>
+:bulb: Pergunta: Como funciona o sistema de rotas do Next.js? <br/>
+Cada arquivo da nossa aplicação vira uma rota.
 
-### Estilização com SASS 
-yarn add sass 
+yarn create next-app nome-do-app
 
-### Configurando fonte externa 
-_documents.tsx - enquanto o ‘_app.tsx’ é carregado todas as vezes que mudamos de págima, o documents é carrega uma única vez. 
+-----
 
-### Title dinâmico por página 
+### :hammer: Adicionando TypeScript <br/>
+:bulb: Pergunta: Como podemos conferir se o pacote instalado traz as tipagens do TypeScript? <br/>
+[npmjs.com/package/react](http://npmjs.com/package/react) - a gente pode ver as tipagens é disponibilizadas dentro dele.
 
-### Estilos globais do app 
+yarn add typescript @types/react @types/node -D
 
-## 📝 Componentes e páginas 
+-----
 
-### Componentes: Header 
+### :hammer: Estilização com SASS <br/>
+:bulb: Pergunta: Qual a principal diferença entre as sitaxes .sass e .scss? <br/>
+No formato de .scss você coloca as chaves para indicar aonde uma tag abre e fecha e a .sass não precisa das chaves.
 
-### Componente: SignInButton 
-yarn add react-icons 
+yarn add sass
 
-### Página Home 
+-----
 
-### Componente: SubscribeButton 
+### :hammer: Configurando fonte externa <br/>
+:bulb: Pergunta: Porque não podemos configurar uma fonte externa no arquivo _app.tsx? E qual a alternativa para isso? <br/>
+O arquivo _app.tsx é recarregado toda vez que o usuário mudar de tela, assim não sendo viável estar dentro dele pois as fontes externa seria algo para ser carregado uma única vez.
 
-## 📝 Integração com API 
+A nossa alternativa é criar um arquivo _document.tsx, ele é recarregado uma única vez, e ele pode ser comparado ao index.html da pasta public do create react-app.
 
-### Configurando Stripe 
-.env.local 
-STRIPE_API_KEY=chave 
+-----
 
-### Consumindo API do Stripe (SSR) 
-yarn add stripe 
+### :hammer: Title dinâmico por página <br/>
+:bulb: Pergunta: Qual a principal função do componente <Head>, importado diretamente do Next.js? <br/>
+Head é um componente React que podemos colocar em qualquer lugar do nosso componente e tudo o que estiver dentro do Head vai ser anexado ao Head do _document.tsx.
+
+Assim podemos configurar algumas coisas do cabeçalhos da nossa aplicação por página, importante também para SEO.
+
+-----
+
+### :hammer: Estilos globais do app <br/>
+:bulb: Pergunta: Porque em um estilo global não usamos .module no nome do arquivo css? <br/>
+O .modulo deixa o scss disponível apenas para o componente em que ele foi importado, como o scss é global ele fica de forma tradicional.
+
+-----
