@@ -261,18 +261,101 @@ Os dois métodos são o ‘update’ e ‘replace’, update conseguimos atualiz
 # 📝 Módulo 03
 Front-end JAMStack
   
-## 💻 AA
+## 💻 Trabalhando com CMS
 
-### 🔨 tt <br/>
-:bulb: pp <br/>
-rr
+### 📃 Escolhendo um CMS <br/>
+:bulb: Pergunta: Qual é o conceito da JAMStack? <br/>
+Conseguimos criar uma aplicação quase que completas sem depender de uma estrutura completa de back-end.
 
 -----
   
-## 💻 AA
+### 📃 Configurando Prismic CMS <br/>
+:bulb: Pergunta: Documente todo o processo de configuração do Prismic para essa aplicação. <br/>
+[https://prismic.io/](https://prismic.io/)
+• Criar conta e criar um repositório
+• Criar um custom type: (Para essa aplicação)
+   Inserir um UID,
+   Inserir um title,
+   Inserir Rich Text fiel
+• Salvar
+• Criar um post (any)
+• Salvar e publicar
+• Configurar - acessar através da nossa aplicação
+   Settings
+   API & Security
+   Repository security
+   Generate an Acess Token
 
-### 🔨 tt <br/>
-:bulb: pp <br/>
-rr
+-----
+  
+### 📃 Página: Posts <br/>
+:bulb: Pergunta: Para que serve a tag <time> no HTML? <br/>
+Define uma hora e uma data. No caso da nossas aplicação de quando a posts foram criados.
+
+-----
+  
+### 📃 Consumindo API do Prismic <br/>
+:bulb: Pergunta: Qual a função do Predicates da API do Prismic?  <br/>
+É um argumento de pesquisa, ele informa à API qual conteúdo pesquisar.
+
+-----
+  
+### 📃 Listando posts em tela <br/>
+:bulb: Pergunta: Porque é importante, sempre que possível, formatar os dados (datas, valores monetários, etc.) assim que a API for consumida? <br/>
+Os dados que recebemos eles não vem como precisamos, principalmente data, valores, etc....
+
+E normalmente formatamos no front assim toda vez que a alguém acessar a página a ‘data’ será formatada.
+
+Assim formatando no momento que fazemos a chamada api, a ‘data’ ou ‘valor’ será formatado uma única vez.
+
+-----
+  
+### 📃 Navegação no menu <br/>
+:bulb: Pergunta: Qual a principal vantagem em usar o componente <Link> para navegação? <br/>
+Deixando uma âncora toda vez que usuário clicar, a página será recarregado do zero.
+
+E com o <link> ele carrega apenas uma vez, assim trazendo mais eficiência para nossa aplicação.
+
+-----
+  
+### 📃 Componente: ActiveLink <br/>
+:bulb: Pergunta: O que a função cloneElement() faz? <br/>
+Ele clona um elemento e modifica ele.
+
+-----
+  
+## 💻 Páginas estáticas
+
+### 🔧 Página: Post   <br/>
+:bulb: Pergunta: Qual a funcionalidade da propriedade dangerouslySetInnerHTML? <br/>
+Você defini um HTML diretamente do React.
+
+-----
+  
+### 🔧 Validando assinatura ativa <br/>
+:bulb: Pergunta: Caso eu queira redirecionar o usuário por uma função e não por um botão, o que eu devo usar? <br/>
+Usando o redirect
+```
+if(!session.activeSubscription) {
+  return{
+    redirect: {
+      destination: '/',
+      permanent: false
+    }
+  }
+}
+```
+
+-----
+  
+### 🔧 Página: Preview do post <br/>
+:bulb: Pergunta: Qual a forma correta de usar o array de dependências do useEffect()? <br/>
+Geralmente colocamos no array de dependências toda e qualquer variável que nós utilizarmos dentro do useEffect, variáveis que podem mudar o seu valor.
+
+-----
+  
+### 🔧 Gerando previews estáticos <br/>
+:bulb: Pergunta: Quais os dois formatos mais comuns para se trabalhar com geração de páginas estáticas no Next.js? <br/>
+Gerar as páginas estáticas durante a build ou gerar as páginas estáticas no primeiro acesso.
 
 -----
