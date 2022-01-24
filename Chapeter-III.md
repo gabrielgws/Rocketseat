@@ -116,9 +116,151 @@ E com o SSG o processo é semelhando ao SSR, a diferença é que o Next.js salva
 
 -----
   
+# 📝 Módulo 02
+Back-end no front-end
+  
+## 💻 API Routes no Next.js
+
+### 🔨 API routes no Next.js <br/>
+:bulb: Pergunta: Cite um caso de uso da API Routes e qual a sua principal vantagem.  <br/>
+Um caso seria quando você está desenvolvendo uma landing page, e precisa salvar contatos do seu formulário. E caso a requisição fosse no front uma pessoa com conhecimentos poderia interceptar essa rota e cadastrar vários e-mails fakes.
+
+E usando o api routes estamos trazendo segurando para o processo de inscrição pra conseguir manter as chaves de acesso ao banco de dados guardadas dentro de um ‘back-end’.
+
+-----
+  
+### 🔨 Estratégias de autenticação <br/>
+:bulb: Pergunta: O Next Auth, uma das estratégias de autenticação citadas, é indicado para quais situações?  <br/>
+Quando formos utilizar uma autenticação simples, e quando precisamos de login social (facebook, github, ... ), e quando nós não queremos ficar preocupados com armazenamento de credenciais de acesso do usuário dentro do nosso back-end.
+
+-----
+  
+### 🔨 Parametrização nas rotas <br/>
+:bulb: Pergunta: Como funciona a parametrização das rotas no Next.js? <br/>
+Quando utilizamos rotas dinâmicas, e vamos buscar por parâmetros trocamos o nome do arquivo para o que desejamos buscar, exemplo:
+
+user.ts > user/index.ts
+
+Quando queremos buscar um usuário pelo id, colocamos colchetes por volta do parâmetro:
+
+user/[id].ts
+
+-----
+  
+### 🔨 Autenticação com Next Auth <br/>
+:bulb: Pergunta: Uma vez com o Next Auth configurado, como podemos compartilhar informações entre os vários componentes da aplicação? <br/>
+Quando nossa aplicação toda precisa de uma informação utilizamos os contextos, nesse caso de dentro do next-auth pra servir as informações para os components se o usuário está autenticado ou não. E então passando para o nosso _app.tsx o provider do next-auth.
+
+yarn add next-auth
+
+-----
+  
+## 💻 Usando FaunaDB
+
+### 💾 Escolhendo um banco de dados <br/>
+:bulb: Pergunta: Porque utilizar um banco de dados como o FaunaDB para essa aplicação? <br/>
+Pois essa aplicação não vai depender totalmente de um back-end necessariamente, e isso para aplicações menores, com contextos muito específicos é válido usar um FaunaDB.
+
+-----
+  
+### 💾 Configurando FaunaDB <br/>
+:bulb: Pergunta: Documente o processo de configuração do FaunaDB. <br/>
+[https://fauna.com/](https://fauna.com/)
+• Login
+• CreateDatabase
+• Security (configurar a api key) - Salvar a key no .env.local
+• New Collection - Criar uma collection de usuários
+• New index - ‘user’ ‘user_by_email’ ‘data.email’ ‘unique’ ‘serializes’
+
+yarn add faunadb
+
+fauna.ts
+
+```import { Client } from 'faunadb';
+  export const fauna = new Client({
+    secret: process.env.FAUNADB_KEY,
+})
+```
+
+-----
+  
+### 💾 Configurações no GitHub <br/>
+:bulb: Pergunta: Verifique se o email da sua conta no GitHub está público para testar a aplicação. <br/>
+Deixar um e-mail publico em configurações no github.
+
+-----
+  
+### 💾 Salvando usuário no banco <br/>
+:bulb: Pergunta: Para que serve o método Create?  <br/>
+Create é um método para fazer inserção.
+
+-----
+  
+### 💾 Chave privada do JWT <br/>
+:bulb: Pergunta: Para que serve o pacote node-jose-tools? <br/>
+É um pacote para gerar chaves e defini-las como vaiáveis de ambiente.
+
+-----
+  
+### 💾 Verificando usuário duplicado <br/>
+:bulb: Pergunta: Qual a vantagem de criar índices em um banco de dados? <br/>
+Nós não buscamos uma informação no banco de dados sem um índice, e o índice otimiza a busca no banco de dados.
+
+-----
+  
+## 💻 Pagamentos no Stripe
+
+### 💳 Gerando sessão de checkout <br/>
+:bulb: Pergunta: Em quais lugares, dentro do Next.js, podemos fazer operações que utilizem credenciais secretas? <br/>
+Exsistem três lugares aonde podemos deixar nossas credenciais secretas:
+
+• getServerSideProps (SSR) - Que não fica visível no front end
+• getStaticProps - Também não fica visível no front end
+• API routes
+
+-----
+  
+### 💳 Redirecionando para o Stripe <br/>
+:bulb: Pergunta: Como podemos deixar uma variável ambiente pública para que ela possa ser acessada diretamente pelo frontend da nossa aplicação? <br/>
+Usando o ‘NEXT_PUBLIC’ no inicio do nome da nossa variável.
+
+-----
+  
+### 💳 Evitando duplicação no Stripe <br/>
+:bulb: Pergunta: Como podemos evitar a criação de um mesmo usuário no Stripe? <br/>
+Utilizar o nosso banco de dados dentro do faunadb,
+
+-----
+  
+## 💻 Ouvindo Webhooks
+
+### 🌐 Webhooks do Stripe <br/>
+:bulb: Pergunta: O que é um Webhooks e qual a sua principal função?  <br/>
+Webhooks  é uma forma de recebimento de informações, que são passadas quando um avento acontece, assim pode receber notificações sobre coisas importantes ao invés de ter que ficar checando-as o tempo todo.
+
+-----
+  
+### 🌐 Ouvindo eventos do Stripe <br/>
+:bulb: Pergunta: Como podemos deixar essa troca de informações, entre a nossa aplicação e uma aplicação terceira, mais segura? <br/>
+A aplicação terceira envia um código para sabermos que é ela que está enviando aqueles dados, e se vier um código diferente pode ser algum mal intencionado, assim salvamos esse código em uma variável de ambiente e colocamos no nosso front end.
+
+-----
+  
+### 🌐 Salvando dados do evento <br/>
+:bulb: Pergunta: O que a função Select faz?  <br/>
+Como não queremos todos os campos e sim somente a ‘ref’, usamos o Select para informar ao banco de dados qual o campo que desejamos.
+
+-----
+  
+### 🌐 Ouvindo mais eventos <br/>
+:bulb: Pergunta: Quais são os métodos utilizados para atualizar um registro dentro do FaunaDB? Qual a diferença entre eles? <br/>
+Os dois métodos são o ‘update’ e ‘replace’, update conseguimos atualizar alguns campos daquele registro e o replace substitui a “subscription” por completo.
+
+-----
+  
 ## 💻 AA
 
-### 🔷 tt <br/>
+### 🔨 tt <br/>
 :bulb: pp <br/>
 rr
 
