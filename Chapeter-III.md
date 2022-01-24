@@ -258,6 +258,17 @@ Os dois métodos são o ‘update’ e ‘replace’, update conseguimos atualiz
 
 -----
   
+# 📝 Módulo 03
+Front-end JAMStack
+  
+## 💻 AA
+
+### 🔨 tt <br/>
+:bulb: pp <br/>
+rr
+
+-----
+  
 ## 💻 AA
 
 ### 🔨 tt <br/>
