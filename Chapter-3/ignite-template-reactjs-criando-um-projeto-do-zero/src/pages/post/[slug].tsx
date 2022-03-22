@@ -12,9 +12,11 @@ import { useEffect, useState } from 'react';
 import { getPrismicClient } from '../../services/prismic';
 import { formatDatePtBR } from '../../helpers/datePtBR';
 import Header from '../../components/Header';
+import Comments from '../../components/Comments';
 
 import commonStyles from '../../styles/common.module.scss';
 import styles from './post.module.scss';
+import Link from 'next/link';
 
 interface PostContent {
   heading: string;
@@ -24,6 +26,7 @@ interface PostContent {
 }
 interface Post {
   first_publication_date: string | null;
+  last_publication_date: string | null;
   data: {
     title: string;
     banner: {
@@ -36,9 +39,24 @@ interface Post {
 
 interface PostProps {
   post: Post;
+  navigation: {
+    prevPost: {
+      uid: string;
+      data: {
+        title: string;
+      }
+    }[],
+    nextPost: {
+      uid: string;
+      data: {
+        title: string;
+      }
+    }[],
+  }
+  preview: boolean;
 }
 
-export default function Post({ post }: PostProps): JSX.Element {
+export default function Post({ post, navigation, preview }: PostProps): JSX.Element {
   const router = useRouter();
   const [readingTime, setReadingTime] = useState<number>();
 
@@ -65,6 +83,19 @@ export default function Post({ post }: PostProps): JSX.Element {
 
   if (router.isFallback) {
     return <div>Carregando...</div>;
+  }
+
+  const isPostEdited = post.first_publication_date !== post.last_publication_date;
+
+  let editionDate;
+  if (isPostEdited) {
+    editionDate = format(
+      new Date(post.last_publication_date),
+      "'* editado em' dd MMM yyyy', às' H':'m",
+      {
+        locale: ptBR,
+      }
+    )
   }
 
   return (
@@ -96,6 +127,7 @@ export default function Post({ post }: PostProps): JSX.Element {
             <p>
               <FiClock /> {averageReadingTime()} min
             </p>
+            <span>{isPostEdited && editionDate}</span>
           </span>
 
           {post.data.content.map(postContent => {
@@ -111,6 +143,36 @@ export default function Post({ post }: PostProps): JSX.Element {
             );
           })}
         </section>
+
+        <section className={`${styles.navigation} ${commonStyles.container}`}>
+          {navigation?.prevPost.length > 0 && (
+            <div>
+              <h3>{navigation.prevPost[0].data.title}</h3>
+              <Link href={`/post/${navigation.prevPost[0].uid}`}>
+                <a>Post anterior</a>
+              </Link>
+            </div>
+          )}
+
+          {navigation?.nextPost.length > 0 && (
+            <div>
+              <h3>{navigation.nextPost[0].data.title}</h3>
+              <Link href={`/post/${navigation.nextPost[0].uid}`}>
+                <a>Next post</a>
+              </Link>
+            </div>
+          )}
+        </section>
+
+        <Comments />
+
+        {preview && (
+          <aside>
+            <Link href="/api/exit-preview">
+              <a className={commonStyles.preview}>Sair do modo Preview</a>
+            </Link>
+          </aside>
+        )}
       </main>
     </>
   );
@@ -138,16 +200,45 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  preview = false,
+  previewData
+}) => {
   const { slug } = params;
   const prismic = getPrismicClient();
-  const response = (await prismic.getByUID('posts', String(slug), {})) as Post;
+  const response = (await prismic.getByUID('posts', String(slug), {
+    ref: previewData?.ref || null,
+  })) as Post;
+
+  const prevPost = await prismic.query(
+    [Prismic.Predicates.at('document.type', 'posts')],
+    {
+      pageSize: 1,
+      after: response.first_publication_date,
+      orderings: '[document.first_publication_date]'
+    }
+  )
+
+  const nextPost = await prismic.query(
+    [Prismic.Predicates.at('document.type', 'posts')],
+    {
+      pageSize: 1,
+      after: response.first_publication_date,
+      orderings: '[document.last_publication_date desc]'
+    }
+  )
 
   return {
     props: {
       post: {
         ...response,
       },
+      navigation: {
+        prevPost: prevPost?.results,
+        nextPost: nextPost?.results
+      },
+      preview
     },
     revalidate: 60 * 60 * 24,
   };

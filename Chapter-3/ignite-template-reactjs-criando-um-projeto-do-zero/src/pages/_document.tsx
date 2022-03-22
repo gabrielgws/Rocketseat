@@ -15,6 +15,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=ignite-template-reactjs-criando-um-projeto-do-zero-gabrielgws"></script>
         </body>
       </Html>
     );
