@@ -43,19 +43,19 @@ Nesse módulo entenderemos como o Next.js transforma a nossa maneira de desenvol
 ✅ Componentes e páginas (💻 4 aulas | ⌚ 00:34:12) <br/>
 ✅ Integração com API (💻 3 aulas | ⌚ 00:34:03) <br/>
 
-### 🚩 Back-end no front-end
+### ✅ Back-end no front-end
 Durante esse módulo entenderemos como o front-end se transformou nos últimos anos com a possibilidade de termos funções back-end (serverless) executando em um ambiente front-end. <br/>
-🚩 API Routes no Next.js (💻 4 aulas | ⌚ 00:37:06) <br/>
-🚩 Usando FaunaDB (💻 6 aulas | ⌚ 00:36:33) <br/>
-🚩 Pagamentos no Stripe (💻 3 aulas | ⌚ 00:33:24) <br/>
-🚩 Ouvindo webhooks (💻 4 aulas | ⌚ 00:51:51) <br/>
+✅ API Routes no Next.js (💻 4 aulas | ⌚ 00:37:06) <br/>
+✅ Usando FaunaDB (💻 6 aulas | ⌚ 00:36:33) <br/>
+✅ Pagamentos no Stripe (💻 3 aulas | ⌚ 00:33:24) <br/>
+✅ Ouvindo webhooks (💻 4 aulas | ⌚ 00:51:51) <br/>
 
-### 🚩 Front-end JAMStack
+### ✅ Front-end JAMStack
 É muito comum o desenvolvimento de aplicações front-end que não estão conectadas a um único back-end hoje em dia, por isso, aqui vamos entender o conceito de JAMStack e como conectar nosso front-end com um CMS. <br/>
-🚩 Trabalhando com CMS (💻 7 aulas | ⌚ 01:05:58) <br/>
-🚩 Páginas estáticas (💻 5 aulas | ⌚ 00:59:32) <br/>
+✅ Trabalhando com CMS (💻 7 aulas | ⌚ 01:05:58) <br/>
+✅ Páginas estáticas (💻 5 aulas | ⌚ 00:59:32) <br/>
 
-### 🚩 💡 Desafio: Criando uma aplicação do zero:
+### ✅ 💡 Desafio: Criando uma aplicação do zero:
 Nesse desafio você deve criar do zero uma aplicação de um blog com Prismic CMS a partir de um layout do Figma.
 
 ### 🚩 💡 Desafio: Adicionado features ao blog:
@@ -63,12 +63,12 @@ Nesse desafio você deve adicionar novas features ao projeto desenvolvido no des
 
 ## - 🚩 Chapter IV - Construindo interfaces do futuro, Data fetching e cache local, Autenticação e autorização
 
-### 🚩 Contruindo interfaces do futuro
+### ✅ Contruindo interfaces do futuro
 Nesse módulo criaremos a interface de um painel administrativo contendo fluxo de autenticação, dashboard, listagem e cadastro usando Chakra UI no Next.js. <br/>
-🚩 Configurando projeto (💻 5 aulas | ⌚ 00:32:16) <br/>
-🚩 Login e dashboard (💻 6 aulas | ⌚ 00:55:44) <br/>
-🚩 Controle de usuários (💻 3 aulas | ⌚ 00:19:20) <br/>
-🚩 Responsividade (💻 9 aulas | ⌚ 01:00:23) <br/>
+✅ Configurando projeto (💻 5 aulas | ⌚ 00:32:16) <br/>
+✅ Login e dashboard (💻 6 aulas | ⌚ 00:55:44) <br/>
+✅ Controle de usuários (💻 3 aulas | ⌚ 00:19:20) <br/>
+✅ Responsividade (💻 9 aulas | ⌚ 01:00:23) <br/>
 
 ### 🚩 💡 Desafio: Interface com Chakra UI:
 Nesse desafio, você deverá desenvolver toda a interface de uma aplicação utilizando como base o Chakra UI.
