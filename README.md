@@ -35,7 +35,7 @@ Nesse desafio, você deverá criar um hook para gerenciar um carrinho de compras
 ### ✅ 💡 Desafio: Refactoring de classes e TypeScript:
 Nesse desafio, você deverá migrar uma aplicação de Javascript e Class Components para Typescript e Function Components
 
-## - 🚩 Chapter III - Fundamentos do Next.js, Back-end no front-end, Front-end JAMStack
+## - ✅ Chapter III - Fundamentos do Next.js, Back-end no front-end, Front-end JAMStack
 
 ### ✅ Fundamentos do Next.js
 Nesse módulo entenderemos como o Next.js transforma a nossa maneira de desenvolver aplicações front-end e descobriremos conceitos importantes como SSR e SSG. <br/>
@@ -58,7 +58,7 @@ Durante esse módulo entenderemos como o front-end se transformou nos últimos a
 ### ✅ 💡 Desafio: Criando uma aplicação do zero:
 Nesse desafio você deve criar do zero uma aplicação de um blog com Prismic CMS a partir de um layout do Figma.
 
-### 🚩 💡 Desafio: Adicionado features ao blog:
+### ✅ 💡 Desafio: Adicionado features ao blog:
 Nesse desafio você deve adicionar novas features ao projeto desenvolvido no desafio anterior.
 
 ## - 🚩 Chapter IV - Construindo interfaces do futuro, Data fetching e cache local, Autenticação e autorização
@@ -70,7 +70,7 @@ Nesse módulo criaremos a interface de um painel administrativo contendo fluxo d
 ✅ Controle de usuários (💻 3 aulas | ⌚ 00:19:20) <br/>
 ✅ Responsividade (💻 9 aulas | ⌚ 01:00:23) <br/>
 
-### 🚩 💡 Desafio: Interface com Chakra UI:
+### ✅ 💡 Desafio: Interface com Chakra UI:
 Nesse desafio, você deverá desenvolver toda a interface de uma aplicação utilizando como base o Chakra UI.
 
 ### 🚩 Data fetching e cache local
