@@ -93,8 +93,116 @@ Ele é usado para separar visualmente o conteúdo em uma lista ou grupo.
 
 -----
 
-### :hammer:	h1 <br/>
-:bulb:	pp <br/>
-tt
+## 💻 Responsividade
+
+### 💅	Separando componentes <br/>
+:bulb:	Pergunta: Porque é importante, sempre que possível, separar um componente em subcomponentes?  <br/>
+Como estamos usando estilização em js, quebrando a nossa aplicação deixamos a nossa aplicação mais limpa visualmente, e mais fácil de se dar manutenção.
+
+-----
+
+### 💅	Responsividade no Chakra <br/>
+:bulb:	Pergunta: Para que servem os  breakpoints? <br/>
+Podemos adicionar estilizações diferentes para cara breakpoints.
+
+-----
+
+### 💅	Header responsivo <br/>
+:bulb:	Pergunta: Caso eu queira esconder um componente na versão mobile, por exemplo, o que eu devo fazer? <br/>
+Podemos utilizar um hook do Chakra ‘useBreakpointValue’, que quando está na versão mobile ele esconde o componente.
+```
+const isWideVersion = useBreakpointValue({
+base: false,
+lg: true
+})
+
+return (
+
+{ isWideVersion && <SearchBox />}
+
+)
+```
+
+-----
+
+### 💅	Sidebar responsiva <br/>
+:bulb:	Pergunta: Porque foi necessário criar um contexto para controlar o funcionamento da Sidebar? <br/>
+Como nossa aplicação o nosso ‘abrir’ o sidebar está no header um componente que não temos acesso dentro do sidebar, assim criamos um contexto para compartilhar essa informação de abrir o sidebar.
+
+-----
+
+### 💅	Dashboard responsivo <br/>
+:bulb:	Pergunta: O que os dois valores passados em um array para o padding representam? <br/>
+Representam valores para mobile e desktop.
+
+-----
+
+### 💅	Listagem responsiva <br/>
+:bulb:	Pergunta: No geral, quais as duas alternativas temos para deixar uma tabela responsiva? <br/>
+Fazendo um scroll, ou transformar tudo em coluna.
+
+-----
+
+### 💅	Cadastro responsivo <br/>
+:bulb:	Pergunta: - <br/>
+-
+
+-----
+
+### 💅	Fluxo de navegação <br/>
+:bulb:	Pergunta: Para que serve a propriedade passHref que colocamos no Link? <br/>
+Quando utilizamos o <Link> e dentro ele não tem a tag do HTML <a> e sim utilizamos outros elementos que renderiza uma âncora, e usando o passHref força o <Link> a enviar um href para o seu filho.
+
+-----
+
+### 💅	Sinalizando link ativo <br/>
+:bulb:	Pergunta: Quando devemos usar ReactElement? <br/>
+ReactElement é diferente do ReactNode pois ele precisa ser um componente react.
+
+-----
+  
+## 💻 Formulários e validação
+
+### 📃	Formulários no React <br/>
+:bulb:	Pergunta: Qual a diferença entre Controlled components e Uncontrolled components na criação de formulários dentro do React?  <br/>
+O controlled ele armazena cada tecla digitada e salva em um estado, e o Uncontrolled acessamos o valor do input só no momento que precisamos utilizar ele.
+
+- Formik
+- React hook form
+
+-----
+  
+### 📃	Atualização React Hook Form <br/>
+:bulb:	Pergunta: Confira se você fez as mudanças necessárias depois da atualização da lib.  <br/>
+-
+
+-----
+  
+### 📃	Form de autenticação <br/>
+:bulb:	Pergunta: Como podemos fazer um encaminhamento de ref? Qual método utilizamos para isso?  <br/>
+Primeiro temos que transformar nosso componente em uma constante, e utilizamos o método que vem de dentro do React ‘forwardRef’ e ele faz um encaminhamento da Ref.
+
+-----
+  
+### 📃	Validação dos dados <br/>
+:bulb:	Pergunta: Qual a função da biblioteca Yup? O que devemos colocar no schema de validação?  <br/>
+É uma biblioteca focada em validação de dados, e dentro do schema devemos colocar os campos do nosso formulário:
+```
+const signInFormSchema = yup.object().shape({
+email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
+password: yup.string().required('Senha obrigatório'),
+})
+```
+
+-----
+  
+### 📃	Form de criação de usuário <br/>
+:bulb:	Pergunta: Como podemos validar o campo de confirmação de senha com o Yup?  <br/>
+Usando o oneOf, e usando o ref sendo referenciado um campo já validado pelo yup
+```
+password_confirmation: yup.string().oneOf([
+null, yup.ref('password')
+], 'As senhas precisam ser iguais'),
+```
 
 -----
