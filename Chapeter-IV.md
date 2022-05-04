@@ -1,307 +1,208 @@
 # 📝 Módulo 01
-Fundamentos do ReactJS
+Construindo interfaces do futuro
 
 ## 💻 Configurando o ambiente
 
-### :hammer:	Introdução do módulo <br/>
-:bulb:	Pergunta: O que é o React e o que conseguimos construir com ele? <br/>
-React é uma biblioteca de criação de interfaces, tudo que é interface pode ser construída com ReactJS (interface web, mobile, TV, Realidade Virtual).
+### :hammer:	Interface Declarativa <br/>
+:bulb:	Pergunta: O que é uma interface declarativa? Quais as vantagens que ela traz? <br/>
+Interface declarativa é quando conseguimos definir a estilização dos elementos direto pela tag do jsx.
+
+As vantagens são que economizamos tempo para ‘codar’ a parte de estilização, assim focando mais no lógico da nossa aplicação.
 
 -----
 
-### :hammer:	Criando estrutura do projeto <br/>
-:bulb:	Pergunta: Como podemos instalar bibliotecas para começar o desenvolvimento de uma estrutura de uma aplicação? <br/>
-Utilizadno o yarn ou npm.
+### :hammer:	Criando projeto Next.js <br/>
+:bulb:	Pergunta: Documente todo o processo de criação de um projeto Next.js.  <br/>
+• yarn create next-app dashgo;
 
-yarn init -y (npm init -y) - package.json aonde ficará as bibliotecas de terceiros.
+• Limpar o projeto e trocar as extensões;
 
-yarn add react
-
-yarn add react-dom - árvores de elementos da nossa aplicação, permite que o react se comunique com a arvore de elementos do HTML
+• yarn add typescript @types/react @types/node -D
 
 -----
 
-### :hammer:	Configurando Babel <br/>
-:bulb:	Pergunta: Qual a função do Babel? Como podemos utilizar ele em nossa aplicação? <br/>
-Babel serve para converter o nosso código para uma maneira que todos os browsers e o nosso ambiente da aplicação consiga entender todos os códigos.
+### :hammer:	Configurando Chakra UI <br/>
+:bulb:	Pergunta: Para que serve o arquivo theme.ts? <br/>
+É o nosso tema do chakra.
 
-yarn add @babel/core @babel/cli @babel/preset-env -D
-
-babel.config.js - 
-
-```
-module.exports = {
-presets: [
- ‘@babel/preset-env’,
- ‘@babel/preset-react’,
-]
-}
-```
-
-yarn babel src/index.js - -out-file dist/bundle.js
-
-yarn add @babel/preset-react -D
+yarn add @chakra-ui/react @chakra-ui/core @emotion/react @emotion/styled framer-motion
 
 -----
 
-### :hammer:	Configurando Webpack <br/>
-:bulb:	Pergunta: Qual a diferença do Webpack e do Babel? O que são os loaders do Webpack? <br/>
-Estipula uma série de configurações (loaders) que ensinam a nossa aplicação como ela deve tratar cada um desses tipos de arquivos((.sass - .css), (.png ou .jpg - .png e .jpg que são entendíveis pelo browser)), o webpack pega cada um desses arquivos e converte em arquivos ‘entendíveis’ pelo browser.
-
-yarn add webpack webpack-cli webpack-dev-server -D
-
-webpack.config.js -
-```const path = require(’path’) 
-
-module.export = {
-entry: path.resolver(__dirname, ‘src’, ‘index.jsx’),
-
-output: {
- path: path.resolve(__dirname, ‘dist’),
- filename: ‘bundle.js’
-},
-
-resolve: {
- extensions: [’.js’, ‘.jsx’],
-},
-
-module: {
- rules: [
-   {
-   test: /\.jsx$/,
-   exclude: /node_modules/,
-   use: ‘babel-loader’
-   },
-  ],
- }
-}
-```
-
-yarn add babel-loader -D // Integração entre o babel e o webpack
+### :hammer:	Configurando fonte <br/>
+:bulb:	Pergunta: Quais os três tipos de fontes que podemos customizar dentro do arquivo theme.ts? <br/>
+Fonte do corpo que são todos os textos da aplicação, fonte dos cabeçalhos h1,h2,h3 ... e as fonts mono spance que são as fontes pra código.
 
 -----
 
-### :hammer:	Estrutura do ReactJS <br/>
-:bulb:	Pergunta: O que é o React-DOM e qual sua importância quando estamos utilizando o React? Como podemos utilizar o React-DOM para exibir nossa aplicação no Browser? <br/>
-React-DOM renderiza a nossa aplicação recebendo dois parâmetros, primeiro o que queremos renderizar e exibir em tela, e o segundo é dentro de qual elemento eu desejo renderizar essa informação
-```
-import { render } from ‘react-dom’;
+## 💻 Login e dashboard
 
-render (<h1>test</h1>, document.getElementById(’root’))
-```
+### 🔷	Página: Sign in <br/>
+:bulb:	Pergunta: Para que serve o elemento Stack do Chakra UI? <br/>
+Para quando vamos criar uma pilha de elementos que precisam de um espaçamento entre eles.
 
 -----
 
-### :hammer:	Servindo HTML estático <br/>
-:bulb:	Pergunta: Qual o benefício do html-webpack-plugin? <br/>
-Melhorar a estrutura da aplicação e melhorar o fluxo da aplicação.
+### 🔷	Componente: Input <br/>
+:bulb:	Pergunta: Qual a grande vantagem, olhando para a estilização, de dividir a aplicação em componentes menores? <br/>
+Assim a nossa aplicação fica mais organizada
 
-yarn add html-webpack-pluguin -D
+-----
+
+### 🔷	Criando Header <br/>
+:bulb:	Pergunta: De acordo com a documentação do Chakra UI, qual a melhor forma de utilizarmos um ícone dentro da nossa aplicação? <br/>
+Utilizarmos o próprio componente de icons do Chakra.
+
+-----
+
+### 🔷	Finalizando Header <br/>
+:bulb:	Pergunta: Porque utilizar o Avatar do Chakra UI e não um componente de imagem tradicional? <br/>
+Caso o componente não carregue a imagem ou o usuário não tem, ele mostra as iniciais do nome do usuário.
+
+-----
+
+### 🔷	Componente: Sidebar <br/>
+:bulb:	Pergunta: Para que serve a tag < aside > ? <br/>
+Tag utilizada para sidebar.
+
+-----
+
+### 🔷	Página: Dashboard <br/>
+:bulb:	Pergunta: Para que serve a função dynamic() do Next.js? <br/>
+Carregar algum componente de uma forma dinâmica.
+
+-----
+
+## 💻 Controle de usuários
+
+### 🛂	Página: Lista de usuários <br/>
+:bulb:	Pergunta: Para que serve o elemento Flex do Chakra UI? <br/>
+Flex é uma box com ‘display: flex’, que renderiza um elemento div.
+
+-----
+
+### 🛂	Componente: Pagination <br/>
+:bulb:	Pergunta: Para que serve a tag strong do HTML? <br/>
+Define um texto com forte importância. O conteúdo dentro é normalmente exibido em negrito.
+
+-----
+
+### 🛂	Página: Form de usuário <br/>
+:bulb:	Pergunta: Para que serve o elemento Divider do Chakra UI? <br/>
+Ele é usado para separar visualmente o conteúdo em uma lista ou grupo.
+
+-----
+
+## 💻 Responsividade
+
+### 💅	Separando componentes <br/>
+:bulb:	Pergunta: Porque é importante, sempre que possível, separar um componente em subcomponentes?  <br/>
+Como estamos usando estilização em js, quebrando a nossa aplicação deixamos a nossa aplicação mais limpa visualmente, e mais fácil de se dar manutenção.
+
+-----
+
+### 💅	Responsividade no Chakra <br/>
+:bulb:	Pergunta: Para que servem os  breakpoints? <br/>
+Podemos adicionar estilizações diferentes para cara breakpoints.
+
+-----
+
+### 💅	Header responsivo <br/>
+:bulb:	Pergunta: Caso eu queira esconder um componente na versão mobile, por exemplo, o que eu devo fazer? <br/>
+Podemos utilizar um hook do Chakra ‘useBreakpointValue’, que quando está na versão mobile ele esconde o componente.
 ```
-const HtmlWebpackPluguin = require(’html-webpack-plugin’)
-
-plugins: [
- new HtmlWebpacjPlugin({
-  template: path.resolve(__dirname, ‘public’, ‘index.html’)
+const isWideVersion = useBreakpointValue({
+base: false,
+lg: true
 })
-]
+
+return (
+
+{ isWideVersion && <SearchBox />}
+
+)
 ```
 
 -----
 
-### :hammer:	Webpack Dev Server <br/>
-:bulb:	Pergunta: Qual a principal funcionalidade do webpack-dev-server? <br/>
-Automatizar, o webpack fica observando as alterações nos arquivos, e toda vez que tiver uma alteração ele cria um novo bundle.js e não precisamos ficar se preocupando.
+### 💅	Sidebar responsiva <br/>
+:bulb:	Pergunta: Porque foi necessário criar um contexto para controlar o funcionamento da Sidebar? <br/>
+Como nossa aplicação o nosso ‘abrir’ o sidebar está no header um componente que não temos acesso dentro do sidebar, assim criamos um contexto para compartilhar essa informação de abrir o sidebar.
 
-yarn add webpack-dev-server -D
+-----
+
+### 💅	Dashboard responsivo <br/>
+:bulb:	Pergunta: O que os dois valores passados em um array para o padding representam? <br/>
+Representam valores para mobile e desktop.
+
+-----
+
+### 💅	Listagem responsiva <br/>
+:bulb:	Pergunta: No geral, quais as duas alternativas temos para deixar uma tabela responsiva? <br/>
+Fazendo um scroll, ou transformar tudo em coluna.
+
+-----
+
+### 💅	Cadastro responsivo <br/>
+:bulb:	Pergunta: - <br/>
+-
+
+-----
+
+### 💅	Fluxo de navegação <br/>
+:bulb:	Pergunta: Para que serve a propriedade passHref que colocamos no Link? <br/>
+Quando utilizamos o <Link> e dentro ele não tem a tag do HTML <a> e sim utilizamos outros elementos que renderiza uma âncora, e usando o passHref força o <Link> a enviar um href para o seu filho.
+
+-----
+
+### 💅	Sinalizando link ativo <br/>
+:bulb:	Pergunta: Quando devemos usar ReactElement? <br/>
+ReactElement é diferente do ReactNode pois ele precisa ser um componente react.
+
+-----
+  
+## 💻 Formulários e validação
+
+### 📃	Formulários no React <br/>
+:bulb:	Pergunta: Qual a diferença entre Controlled components e Uncontrolled components na criação de formulários dentro do React?  <br/>
+O controlled ele armazena cada tecla digitada e salva em um estado, e o Uncontrolled acessamos o valor do input só no momento que precisamos utilizar ele.
+
+- Formik
+- React hook form
+
+-----
+  
+### 📃	Atualização React Hook Form <br/>
+:bulb:	Pergunta: Confira se você fez as mudanças necessárias depois da atualização da lib.  <br/>
+-
+
+-----
+  
+### 📃	Form de autenticação <br/>
+:bulb:	Pergunta: Como podemos fazer um encaminhamento de ref? Qual método utilizamos para isso?  <br/>
+Primeiro temos que transformar nosso componente em uma constante, e utilizamos o método que vem de dentro do React ‘forwardRef’ e ele faz um encaminhamento da Ref.
+
+-----
+  
+### 📃	Validação dos dados <br/>
+:bulb:	Pergunta: Qual a função da biblioteca Yup? O que devemos colocar no schema de validação?  <br/>
+É uma biblioteca focada em validação de dados, e dentro do schema devemos colocar os campos do nosso formulário:
 ```
-devServer: {
- contentBase: path.resolve(__dirname, ‘public’, ‘index.html’)
-}
-```
-yarn webpack serve
-
------
-
-### :hammer:	Utilizando source maps <br/>
-:bulb:	Pergunta: Qual o benefício da utilização do source maps enquanto desenvolvemos a aplicação? <br/>
-Uma forma de conseguir visualizar o código original da nossa aplicação mesmo quanto todo o código está embaralhado no bundle.js.
-
------
-
-### :hammer:	Ambiente dev e produção <br/>
-:bulb:	Pergunta: O que são as variáveis ambientes, e como podemos utilizar elas em nossa aplicação?  <br/>
-Variáveis ambientes são para configurar alguma coisa de acordo o ambiente da minha aplicação.
-
-const isDevelopment = process.env.NODE_ENV ≠ ‘production’;
-
-Temos ambiente de desenvolvimento e de produção, o webpack funciona de forma diferentes, quando estamos em desenvolvimento e quando eu gerar a aplicação para produção.
-
-mode: isDevelopment ? ‘development’ : ‘production’
-
-yarn add cross-env -D
-```
-“scripts”: {
- “dev”: “webpack serve”,
- “build”: “cross-env NODE_ENV=production webpack”
-}
-```
-
-------
-
-### :hammer:	Importando arquivos CSS <br/>
-:bulb:	Pergunta: Por que é necessário configurar um loader para os nossos arquivos de css? <br/>
-O react não entende nada do arquivo que importamos pois não é um arquivo js, e o loader serve para ler o arquivos css.
-
-yarn add style-loader css-loader -D
-
-import ‘./styles/global.css’;
-
-```
-module: {
- rules: [
- {
-  test: /\.css$/,
-  exclude: /node_modules/,
-  use: [’style-loader’, ‘css-loader’],
- }
- ]
-}
-```
-### :hammer:	Utilizando SASS <br/>
-:bulb:	Pergunta: O que é o SASS e quais benefícios você consegue enxergar na utilização dele? <br/>
-SASS é um pré-processador que conseguimos tem funcionalidades a mais como o encadeamento, utilizar mais funções.
-
-yarn add node-sass -D
-
-yarn add sass-loader -D
-
------
-
-## 💻 Configurando o ambiente
-
-### :wrench:	Primeiro componente React <br/>
-:bulb:	Pergunta: O que são componentes do React e qual sua importância para a organização da nosas aplicação? <br/>
-Componentes é como se fosse as tags no HTML, são formas de encapsular uma quantidade de código dentro de um único elemento e ele tem sua própria funcionalidade sua estilização e a sua própria estrutura. São formas da gente organizar a nossa aplicação, dividir a nossa aplicação em vários pedacinhos que quando conectados formam algo maior.
-
------
-
-### :wrench:	Propriedades no React <br/>
-:bulb:	Pergunta: Como utilizamos as propriedades do React? Qual a utilidade de propriedades no React? <br/>
-Propriedades funcionam assim como os atributos funcionam dentro de tags HTML, são informações variáveis que eu posso passar para um componente funcionar de forma diferente.
-
-Podemos acessar todas as propriedades que um componentes recebe através dos argumentos da função (props).
-
------
-
-### :wrench:	Estado do componente <br/>
-:bulb:	Pergunta: O que é estado no React? Qual é o hook de estado do React? <br/>
-Estado é uma variável que o react monitora e toda vez que o valor é alterado ele renderiza novamente em tela.
-
-O hook utilizado é o useState.
-
------
-
-### :wrench:	A imutabilidade no React <br/>
-:bulb:	Pergunta: O que significa a imutabilidade no React e qual sua importância?  <br/>
-Ele prevê que uma variável nunca pode ter o seu valor alterado, ele sempre vai receber um novo valor. Cria um novo espaço na memória contendo a nova informação do que alterar uma informação que já está salva na memória. Garantindo uma melhor performance no react, e fica mais fácil ele entender as novas informações que existem dentro de uma variável.
-
------
-
-### :wrench:	Fast Refresh no Webpack <br/>
-:bulb:	Pergunta: Como o Fast Refresh beneficia o nosso desenvolvimento? <br/>
-Deixa o ambiente de desenvolvimento mais fluido. Quando alteramos algo em nosso componente ele mantem o estado assim não perdendo todo o processo.
-
-yarn add -D @pmmmwh/react-refresh-webpack-plugin react-refresh
-
------
-
-## 💻 Chamadas HTTP
-
-### 🌐	Primeiro componente React <br/>
-:bulb:	Pergunta: O que o & significa no SCSS? <br/>
-O & no scss referencia o próprio elemento.
-```
-li {
- & + li {
-  margin-top: 20px;
- }
-}
+const signInFormSchema = yup.object().shape({
+email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
+password: yup.string().required('Senha obrigatório'),
+})
 ```
 
 -----
-
-### 🌐	Utilizando o useEffect <br/>
-:bulb:	Pergunta: Qual a funcionalidade do useEffect? E como podemos utilizar uma função somente assim que nosso componente for renderizado em tela utizando o useEffect? <br/>
-Dispara uma função quando algo acontecer na aplicação. Esse ‘algo’ poderia ser uma variável mudar, e ai conseguimos avisar alguma api que ouve alguma alteração ou até podemos disparar alguma função dentro do sistema.
+  
+### 📃	Form de criação de usuário <br/>
+:bulb:	Pergunta: Como podemos validar o campo de confirmação de senha com o Yup?  <br/>
+Usando o oneOf, e usando o ref sendo referenciado um campo já validado pelo yup
 ```
-useEffect( () ⇒ {}, [])
+password_confirmation: yup.string().oneOf([
+null, yup.ref('password')
+], 'As senhas precisam ser iguais'),
 ```
 
 -----
-
-### 🌐	Listando repositórios <br/>
-:bulb:	Pergunta: Como podemos incluir um código JavaScript dentro do retorno do nosso componente React? <br/>
-Conseguimos incluir JavaScript dentro do React usando chaves {}.
-
------
-
-## 💻 Utilizando TypeScript 
-
-### :large_blue_diamond: Fundamentos do TypeScript <br/>
-:bulb:	Pergunta: Por definição, o que é o TypeScript? Quais os benefícios em utilizá-lo no projeto? <br/>
-TypeScript é um superset, um conjunto de funcionalidades que a gente adiciona em cima de uma linguagem.
-
-TypeScipt permite adicionar tipagem, adicionar qual é o formato das informações que estamos esperando dentro dos argumentos da nossa função. ou qual é o formato das informações que estamos esperando retornar de uma função.
-
------
-
-### :large_blue_diamond:	TypeScript no ReactJS <br/>
-:bulb:	Pergunta: Quais utilizades tem o TypeScript no React? Quais os principais lugares que adicionamos tipagens no React? <br/>
-Ele tipa as propriedades que um componente pode receber.
-
-yarn add typescript -D
-
-yarn tsc —init
-
-yarn add @babel/preset-typescript -D
-
-yarn add @types/react-dom -D
-
-yarn add @types/react -D
-
------
-
-### :large_blue_diamond:	Componentes com TypeScript <br/>
-:bulb:	Pergunta: Qual formato damos para os nossos arquivos React para podermos utilizar o TypeScript junto com o React? <br/>
-Formato de .tsx
-
------
-
-## 💻 Finalizando a aplicação
-
-### 🔎	Utilizando React DevTools <br/>
-:bulb:	Pergunta: Por definição, o que é o TypeScript? Quais os benefícios em utilizá-lo no projeto? <br/>
-TypeScript é um superset, um conjunto de funcionalidades que a gente adiciona em cima de uma linguagem.
-
-TypeScipt permite adicionar tipagem, adicionar qual é o formato das informações que estamos esperando dentro dos argumentos da nossa função. ou qual é o formato das informações que estamos esperando retornar de uma função.
-
------
-
-### 🔎	Finalização do módulo <br/>
-:bulb:	Pergunta: O que você aprendeu até aqui? Quais os pontos principais desse módulo pra você? 💜 <br/>
-Aprendi nesse primeiro módulo:
-
-- Como configurar estrutura de um projeto react do 0 com babel, com webpack, com typescript, com css loader ou sass loader.
-- Webpack dev server
-- Source maps
-- Sobre ambiente de desenvolvimento e de produção
-- Importação de arquivos css e scss
-- Componentização
-- Sobre propriedades do componente
-- Estado
-- Imutabilidade
-- Hooks (useState, useEffect)
-- Listagem de repositório (api github, map(), key)
-- typeScript
-- React Devtools
