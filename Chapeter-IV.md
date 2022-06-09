@@ -261,3 +261,89 @@ Fetching - Significa que está no meio do processo do carregamento.
 Fresh - Significa que um dado é recente, e não precisamos recarregar esse dado dentro de um certo período.
 
 -----
+## 💻 Construindo aplicação
+
+### 🌐 Sinalizando refetch dos dados <br/>
+:bulb: Pergunta: Porque é interessante termos dois tipos de loading na aplicação? Em que momento usar cada um deles? <br/>
+Loading inicial que ele é mais pesado (o primeiro carregamento), e o loading que apenas sinaliza um refetch mostra que estamos atualizando os dados.
+-----
+  
+### 🌐 Configurando Axios <br/>
+:bulb: Pergunta: Cite uma vantagem que o axios tem em relação ao fetch. <br/>
+Com o axios conseguirmos colocar uma url base, para que todas as requisições partam de um endereço inicial.
+-----
+  
+### 🌐 Criando hook de listagem <br/>
+:bulb: Pergunta: Quais as possíveis formas de passar o tipo de dado que o useQuery (React Query) retorna? <br/>
+Podemos tipar que tipo de dados estamos passando e usar duas opções para passar esses dados.
+
+- no useQuery podemos passar um generic falando que o retorno dele é um array de User.
+- Passamos uma Promisse para a função que o useQuery está recebendo, assim ele já vai saber o tipo de dados retornados.
+-----
+  
+### 🌐 Lógica de paginação <br/>
+:bulb: Pergunta: Quando devemos enviar os dados como headers? Qual a melhor forma de fazer isso no mirage? <br/>
+Quando queremos enviar dados que não fazem parte do corpo da requisição (corpo da resposta), fazem parte do resultado da requisição.
+  ```
+  return new Response (
+          200,
+          { 'x-total-count': String(total) },
+           { users }
+        );
+  ```
+-----
+  
+### 🌐 Componente de paginação <br/>
+:bulb: Pergunta: Para absorver melhor o conteúdo, documente como foi feita cada lógica dentro desse componente de paginação.
+Ex: Qual a lógica para mostrar a primeira página? A última? Os ... entre elas? <br/>
+```
+ - lastPage: const lastPage = Math.floor(totalCountOfRegisters / registersPerPage);
+- previousPage:
+
+const siblingsCount = 1;
+
+function generatePagesArray*(from: number, to: number)*{
+
+return [...new Array(to - from)]
+
+.map(*(_, index)* => {
+
+return from + index + 1;
+
+})
+
+.filter(page => page > 0);
+
+}
+
+const previousPages = currentPage > 1
+? generatePagesArray(currentPage - 1 - siblingsCount, currentPage - 1)
+: []
+
+- nextPage:
+
+const nextPage = currentPage < lastPage
+? generatePagesArray(currentPage, Math.min(currentPage + siblingsCount, lastPage))
+: [] 
+ ```
+-----
+  
+### 🌐 Trocando de página <br/>
+:bulb: Pergunta: O que é o conceito de prop drilling? <br/>
+É passar uma prop do componente pai para o filho, e do filho para outro filho.
+-----
+  
+### 🌐 Prefetch de dados <br/>
+:bulb: Pergunta: Defina o que é a funcionalidade Prefetch. <br/>
+Deixa esses dados armazenados em cache antes mesmo de precisarmos do mesmo.
+-----
+  
+### 🌐 Utilizando mutations <br/>
+:bulb: Pergunta: Como podemos enviar e/ou receber dados e relacionamentos em uma única  requisição? <br/>
+Utilizando de dentro do MirageJS o serializers, ele determina como ele deve interpretar os dados que são enviados. E assim usamos o ActiveModelSerializer para conseguirmos enviar os dados/relacionamentos todos em um dado só.
+-----
+  
+### 🌐 SSR no React Query <br/>
+:bulb: Pergunta: O que devemos fazer para que um hook funcione, em integração com um SSR, já que ele só pode ser usado dentro de um componente? <br/>
+Usando o UseQueryOptions e dentro dele temos o initialData, initialData é qual o valor que queremos inicializar.
+-----
