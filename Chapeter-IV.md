@@ -206,3 +206,58 @@ null, yup.ref('password')
 ```
 
 -----
+  
+# 📝 Módulo 02
+Data fetching e cache local
+
+## 💻 Conceitos do React Query
+
+### 🌐 Data fetching no React <br/>
+:bulb: Pergunta: Quais as vantagens de se trabalhar com data fetching e cache local de dados? <br/>
+Armazena o estado/dados das requisições, em um período de tempo pré determinado que não tenha probabilidade de mudar, salvamos essas informações para mostrar ao usuário com uma melhor usabilidade.
+
+React Query - biblioteca utilizada
+
+-----
+  
+### 🌐 Configurando MirageJS  <br/>
+:bulb: Pergunta: Pra que serve o método passthrough()? <br/>
+Faz com que todas as chamadas para ‘api’ passem pelo MirageJS, caso não forem detectadas pelo MirageJS faz uma chamada para a rota original.
+
+-----
+  
+### 🌐 Factories e seeds <br/>
+:bulb: Pergunta: O que são as factories? <br/>
+São formas da gente conseguir gerar dados em massa.
+
+-----
+  
+### 🌐 Configurando React Query <br/>
+:bulb: Pergunta: Para o que a biblioteca React Query é utilizada?  <br/>
+É uma das melhores maneiras de buscar, armazenar em cache e atualizar dados remotos. Precisamos apenas dizer à biblioteca onde você precisa buscar os dados, e ela tratará do cache, das atualizações em segundo plano e da atualização dos dados sem nenhum código ou configuração extra.
+
+-----
+  
+### 🌐 Listagem de usuários <br/>
+:bulb: Pergunta: Como podemos converter um campo do tipo string em uma data? <br/>
+```
+createdAt: new Date(user.createdAt).toLocaleDateString('pt-BR', {
+          day: '2-digit',
+          month: 'long',
+          year: 'numeric',
+        }),  
+```
+
+-----
+  
+### 🌐 Configurando DevTools <br/>
+:bulb: Pergunta: O que difere os estados da biblioteca React Query dos estados do React, por exemplo? <br/>
+O ReactQuery ele controla o estado da comunicação do front-end com o servidor, enquanto o estado do react gerenciam o estado da aplicação pelo client.
+
+Stale - Significa obsoleto, quer dizer que se o usuário der foco nessa tela ou sair da tela e precisar carregar os dados novamente o ReactQuery precisa ir na api e buscar os dados novamente.
+
+Fetching - Significa que está no meio do processo do carregamento.
+
+Fresh - Significa que um dado é recente, e não precisamos recarregar esse dado dentro de um certo período.
+
+-----
