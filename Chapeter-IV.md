@@ -266,11 +266,13 @@ Fresh - Significa que um dado é recente, e não precisamos recarregar esse dado
 ### 🌐 Sinalizando refetch dos dados <br/>
 :bulb: Pergunta: Porque é interessante termos dois tipos de loading na aplicação? Em que momento usar cada um deles? <br/>
 Loading inicial que ele é mais pesado (o primeiro carregamento), e o loading que apenas sinaliza um refetch mostra que estamos atualizando os dados.
+  
 -----
   
 ### 🌐 Configurando Axios <br/>
 :bulb: Pergunta: Cite uma vantagem que o axios tem em relação ao fetch. <br/>
 Com o axios conseguirmos colocar uma url base, para que todas as requisições partam de um endereço inicial.
+  
 -----
   
 ### 🌐 Criando hook de listagem <br/>
@@ -279,6 +281,7 @@ Podemos tipar que tipo de dados estamos passando e usar duas opções para passa
 
 - no useQuery podemos passar um generic falando que o retorno dele é um array de User.
 - Passamos uma Promisse para a função que o useQuery está recebendo, assim ele já vai saber o tipo de dados retornados.
+  
 -----
   
 ### 🌐 Lógica de paginação <br/>
@@ -291,6 +294,7 @@ Quando queremos enviar dados que não fazem parte do corpo da requisição (corp
            { users }
         );
   ```
+  
 -----
   
 ### 🌐 Componente de paginação <br/>
@@ -331,19 +335,111 @@ const nextPage = currentPage < lastPage
 ### 🌐 Trocando de página <br/>
 :bulb: Pergunta: O que é o conceito de prop drilling? <br/>
 É passar uma prop do componente pai para o filho, e do filho para outro filho.
+  
 -----
   
 ### 🌐 Prefetch de dados <br/>
 :bulb: Pergunta: Defina o que é a funcionalidade Prefetch. <br/>
 Deixa esses dados armazenados em cache antes mesmo de precisarmos do mesmo.
+  
 -----
   
 ### 🌐 Utilizando mutations <br/>
 :bulb: Pergunta: Como podemos enviar e/ou receber dados e relacionamentos em uma única  requisição? <br/>
 Utilizando de dentro do MirageJS o serializers, ele determina como ele deve interpretar os dados que são enviados. E assim usamos o ActiveModelSerializer para conseguirmos enviar os dados/relacionamentos todos em um dado só.
+  
 -----
   
 ### 🌐 SSR no React Query <br/>
 :bulb: Pergunta: O que devemos fazer para que um hook funcione, em integração com um SSR, já que ele só pode ser usado dentro de um componente? <br/>
 Usando o UseQueryOptions e dentro dele temos o initialData, initialData é qual o valor que queremos inicializar.
+  
 -----
+  
+ # 📝 Módulo 03
+Autenticação e autorização
+
+## 💻 Configurando ambiente
+
+### 🔧 Estratégia de autenticação <br/>
+:bulb: Pergunta: Qual a função de um Refresh Token e porque ele acaba sendo mais seguro? <br/>
+Quando front-end detectar que o token foi expirado, ele vai fazer uma nova requisição para o back-end e assim devolvendo um novo jwt e refresh token.
+  
+-----
+  
+### 🔧 Configurando API RESTful <br/>
+:bulb: Pergunta: Clone e deixe rodando na sua máquina este repositório. <br/>
+  
+-----
+  
+## 💻 Autenticação com JWT
+
+### 🔒 Contexto de autenticação <br/>
+:bulb: Pergunta: Porque é importante criar o método de autenticação dentro de um contexto? <br/>
+Pois a parte de autenticação ela precisa estar disponível em toda a nossa aplicação
+  
+-----
+
+### 🔒 Configurando cliente do axios <br/>
+:bulb: Pergunta: Descreva o que representa cada uma das três partes de um token JWT. <br/>
+Vermelho: header, fala qual algoritmo está utilizando e qual o tipo do token.
+
+Roxa: payload, informações que podemos colocar dentro do token.
+
+Azul: verify signature, basicamente uma verificação de assinatura.
+  
+-----
+
+### 🔒 Salvando dados do usuário <br/>
+:bulb: Pergunta: Cite três maneiras que podemos armazenar o token e o refreshToken do usuário mesmo após ele atualizar a página. Qual a melhor delas? <br/>
+Podemos armazenar utilizando o localStorage, sessionStorage ou cookies. E o melhor delas é para o quê você vai utilizar, para essa aplicação o melhor é o cookies pois ele pode ser acessando tanto pelo lado do servidor e pelo lado client.
+  
+-----
+
+### 🔒 Salvando tokens nos cookies <br/>
+:bulb: Pergunta: O que a função setCookie() faz? Quais os três parâmetros que ela recebe? <br/>
+SetCookie da biblioteca nookies, salva uma nova informação nos cookies.
+
+E os parametros que ela recebe são:
+
+- Contexto da requisição (undefined)
+- Nome do cookie
+- Valor do token
+  
+-----
+
+### 🔒 Recuperando estado da autenticação <br/>
+:bulb: Pergunta: O que o parseCookies() faz? Como podemos adicionar o header em todas as requisições?  <br/>
+parseCookies( ) devolve uma lista de todos os cookies salvos.
+
+Dentro da nossa api, adicionar os headers assim passando para toda nossa aplicação.
+  
+-----
+
+### 🔒 Realizando refresh do token <br/>
+:bulb: Pergunta: O que é o interceptor?  <br/>
+Você pode interceptar solicitações ou respostas antes que elas sejam tratadas por then ou catch.
+  
+-----
+
+### 🔒 Fila de requisições no Axios <br/>
+:bulb: Pergunta: Como podemos solucionar o problema em que a requisição para o refresh é feita mais de uma vez? <br/>
+Criamos uma variável global e ela vai começar como false, e na chama api /refresh assim quando recebermos a resposta que o token está inválido, vamos atualizar o token e setar a variável como true, assim as outras requisições não vão acontecer.
+  
+-----
+
+### 🔒 Realizando logout automático <br/>
+:bulb: Pergunta: Para que serve a função destroyCookie()? <br/>
+Loggout o usuário, e redireciona pra a HomePage.
+  ```
+  .catch(error => {
+        destroyCookie(undefined, 'nextauth.token');
+        destroyCookie(undefined, 'nextauth.refreshToken');
+
+        Router.push('/')
+      })
+  ```
+  
+-----
+
+  
