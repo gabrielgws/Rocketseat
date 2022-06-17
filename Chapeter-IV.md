@@ -442,4 +442,108 @@ Loggout o usuário, e redireciona pra a HomePage.
   
 -----
 
+## 💻 Autenticação com SSR
+
+### 🔐 Recuperando token no server-side <br/>
+:bulb: Pergunta: Como podemos trabalhar com cookies do lado do servidor? <br/>
+Utilizando o parseCookies da biblioteca nookies, assim retornando os cookies existentes.
+```
+  export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const cookies = parseCookies(ctx);
+
+  if (cookies['nextauth.token']) {
+    return {
+      redirect: {
+        destination: '/dashboard',
+        permanent: false,
+      }
+    }
+  }
   
+  return {
+    props: {}
+  }
+}
+```
+  
+-----
+  
+### 🔐 Validando visitante <br/>
+:bulb: Pergunta: O que é uma higher-order function? <br/>
+É uma função que pode retornar uma função ou receber como parâmetro uma função e executar essa função.
+  
+-----
+  
+### 🔐 Validando autenticação (Server) <br/>
+:bulb: Pergunta: Como podemos conferir se o código está sendo executado no browser ou no servidor? <br/>
+Primeiro mudamos a nossa chamada api para um função e assim passamos um contexto para ela.
+```
+export const getServerSideProps = withSSRAuth( async (ctx) => {
+  const apiClient = setupApiClient(ctx);
+  const response = await apiClient.get('/me');
+
+  console.log(response.data);
+
+  return {
+    props: {}
+  }
+})
+```
+  
+-----
+  
+### 🔐 Redirecionamento pelo servidor <br/>
+:bulb: Pergunta: Por que é importante fazermos o redirecionamento pelo servidor quando o token expirar? <br/>
+Pois a aplicação vai continuar tendo acesso as informações do usuário, pois ela vai fazer o processo de refresh pelo client.
+  
+-----
+  
+## 💻 Controle de permissões
+
+### 🛂 Criando hook de permissão <br/>
+:bulb: Pergunta: Para que serve o método every()? <br/>
+Ele só vai retornar true caso todas as condições dentro dessa função estiverem satisfeitas.
+  
+-----
+  
+### 🛂 Criando componente de permissão <br/>
+:bulb: Utilize esse espaço para anotações importantes sobre a aula. <br/>
+```
+import { ReactNode } from "react";
+import { useCan } from "../hooks/useCan";
+
+interface CanProps {
+  children: ReactNode;
+  permissions?: string[];
+  roles?: string[];
+}
+
+export function Can({ children, permissions, roles }: CanProps) {
+  const userCanSeeComponent = useCan({ permissions, roles });
+
+  if(!userCanSeeComponent) {
+    return null;
+  }
+
+  return (
+    <>
+      {children}
+    </>
+  )
+}  
+```
+  
+-----
+  
+### 🛂 Validando permissões (Server) <br/>
+:bulb: Pergunta: Por que não podemos utilizar o hook useCan para fazer a validação das permissões e roles do usuário, diretamente dentro do getServerSideProps? <br/>
+Os use dor react só funcionam dentro de componentes.
+  
+-----
+  
+### 🛂 Broadcast de logout <br/>
+:bulb: Pergunta: Explique o que é o BroadcastChannel, e para que utilizamos ele. <br/>
+A interface BroadcastChannel (canal de transmissão) representa um canal com um nome em que qualquer browsing context (en-US)  (contexto de navegação) de uma determinada origin (origem) pode assinar. Permite a comunicação entre diferentes documentos (em diferentes janelas, abas, frames ou iframes) da mesma origin. As mensagens são transmitidas através de um vento message
+acionado em todos objetos do tipo BroadcastChannel que estão ouvindo o canal.
+  
+-----
