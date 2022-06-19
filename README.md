@@ -115,4 +115,4 @@ Nesse módulo vamos conhecer as principais estratégias de deploy de uma aplica�
 Nesse desafio você irá colocar uma aplicação em produção usando das abordagens aprendidas durante o capítulo.
 
 # Certificado 📄
-<img src="" alt="Certificado" />
+<img src="https://github.com/gabrielgws/Rocketseat/blob/master/certificado-rocketseat-reactJs.pdf" alt="Certificado" />
