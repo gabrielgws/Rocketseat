@@ -88,30 +88,30 @@ Nesse módulo vamos entender como criar um processo completo de autenticação, 
 ### ✅ 💡 Desafio: Upload de imagens:
 Nesse desafio você deve realizar o upload e listagem de imagens utilizando React Query, React Hook Form e Chakra UI.
 
-## - 🚩 Chapter V - Performando apps com ReactJS, Testes unitários o React
+## - ✅ Chapter V - Performando apps com ReactJS, Testes unitários o React
 
-### 🚩 Performando apps com ReactJS
+### ✅ Performando apps com ReactJS
 Uma preocupação comum no desenvolvimento de aplicações web é a performance e, por isso, nesse módulo entenderemos como performar aplicações com React entendendo como funcionam os algoritmos internos da biblioteca e todo fluxo de renderização de componentes. <br/>
-🚩 Fundamentos (💻 3 aulas | ⌚ 00:30:45) <br/>
-🚩 Otimizações (💻 7 aulas | ⌚ 01:05:50) <br/>
+✅ Fundamentos (💻 3 aulas | ⌚ 00:30:45) <br/>
+✅ Otimizações (💻 7 aulas | ⌚ 01:05:50) <br/>
 
-### 🚩 💡 Desafio: Otimizando a aplicação:
+### ✅ 💡 Desafio: Otimizando a aplicação:
 Nesse desafio, você irá aplicar estratégias de otimização no React conforme visto no módulo anterior para performar uma aplicação já pronta.
 
-### 🚩 Testes unitários no React
+### ✅ Testes unitários no React
 Nesse módulo vamos entender como criar testes automatizados de unidade dentro do React garantindo que nossos componentes e páginas continuem funcionando independente de novas manutenções. Tudo isso usando Jest e Testing Library. <br/>
-🚩 Introdução (💻 2 aulas | ⌚ 00:13:28) <br/>
-🚩 Testando componentes (💻 4 aulas | ⌚ 00:44:11) <br/>
-🚩 Testando páginas (💻 5 aulas | ⌚ 00:34:43) <br/>
-🚩 Dicas em testes unitários (💻 3 aulas | ⌚ 00:18:21) <br/>
+✅ Introdução (💻 2 aulas | ⌚ 00:13:28) <br/>
+✅ Testando componentes (💻 4 aulas | ⌚ 00:44:11) <br/>
+✅ Testando páginas (💻 5 aulas | ⌚ 00:34:43) <br/>
+✅ Dicas em testes unitários (💻 3 aulas | ⌚ 00:18:21) <br/>
 
-## - 🚩 Chapter VI - Estratégias de deploy no ReactJS
+## - ✅ Chapter VI - Estratégias de deploy no ReactJS
 
-### 🚩 Estratégias de deploy no ReactJS
+### ✅ Estratégias de deploy no ReactJS
 Nesse módulo vamos conhecer as principais estratégias de deploy de uma aplicação ReactJS com e sem Next.js utilizando serviços como Netlify e Vercel principalmente, mas também apresentando outras opções para projetos mais complexos. <br/>
-🚩 Estratégias de deploy no ReactJs (💻 3 aulas | ⌚ 00:44:28) <br/>
+✅ Estratégias de deploy no ReactJs (💻 3 aulas | ⌚ 00:44:28) <br/>
 
-### 🚩 💡 Desafio: Deploy da aplicação:
+### ✅ 💡 Desafio: Deploy da aplicação:
 Nesse desafio você irá colocar uma aplicação em produção usando das abordagens aprendidas durante o capítulo.
 
 # Certificado 📄
